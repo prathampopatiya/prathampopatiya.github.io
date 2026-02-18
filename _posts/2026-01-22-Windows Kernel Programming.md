@@ -3,8 +3,9 @@ tags:
   - WindowsInternals
   - kernel
   - Programming
-Date: 22-01-26
+date: 22-01-26
 Author: Pratham Popatiya
+title: Windows kernel Programming
 ---
 
 ## Kernel Programming basics
@@ -24,6 +25,7 @@ Author: Pratham Popatiya
 | C++ usage             | Full C++ runtime available                                                          | No C++ runtime                                                                                               |
 
 ---
+
 ## The Kernel API
 
 Kernel drivers use exported functions from kernel components. These functions will be referred to as the Kernel API. Most functions are implemented within the kernel module itself (NtOskrnl.exe), but some may be implemented by other kernel modules, such the HAL (hal.dll).
@@ -45,7 +47,8 @@ Kernel drivers use exported functions from kernel components. These functions wi
 | Zw     | native API wrappers                | ZwCreateFile               |
 | Hal    | Hardware abstraction layer         | HalExamineMBR              |
 | Cm     | Config manager                     | CmRegisterCallbackEx       |
->[!NOTE]
+
+>[!Note]
 >If you take a look at the exported functions list from NtOsKrnl.exe, you’ll find many functions that are not documented in the Windows Driver Kit
 
 
@@ -56,6 +59,7 @@ Drivers often need to allocate memory dynamically. As discussed in chapter 1, ke
 The kernel provides two general memory pools for drivers to use (the kernel itself uses them as well). 
 - Paged pool - memory pool that can be paged out if required. 
 -  Non-Paged Pool - memory pool that is never paged out and is guaranteed to remain in RAM.
+
 >[!Note]
 >Clearly, the non-paged pool is a “better” memory pool as it can never incur a page fault.
 
