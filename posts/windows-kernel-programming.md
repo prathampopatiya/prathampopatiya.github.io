@@ -1,204 +1,259 @@
 ---
+
 title: "Windows Kernel Programming basics"
 date: "2026-05-10"
 excerpt: "Getting started into Windows Kernel Programming"
 tags: ["Windows Internals", "Kernel Programming"]
 author: "rayqu4z4"
----
+------------------
 
-## Kernel Programming basics
+# Kernel Programming Basics
 
-**Differences between user mode and kernel mode development**
+## Differences Between User Mode and Kernel Mode Development
 
-| specification         | user mode                                                                           | kernel mode                                                                                                  |
+| Specification         | User Mode                                                                           | Kernel Mode                                                                                                  |
 | --------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Unhandled exceptions  | crashes the process                                                                 | crashes the system                                                                                           |
+| Unhandled exceptions  | Crashes the process                                                                 | Crashes the system                                                                                           |
 | Terminations          | When a process terminates, all private memory and resources are freed automatically | If a driver unloads without freeing everything it was using, there is a leak, only resolved in the next boot |
-| IRQL                  | Always PASSIVE_LEVEL (0)                                                            | May be DISPATCH_LEVEL (2) or higher                                                                          |
-| Return values         | API errors are sometimes ignored                                                    | Should (almost) never ignore errors                                                                          |
-| Bad Coding            | Typically localized to the process                                                  | Typically localized to the process                                                                           |
-| Testing and Debugging | Typical testing and debugging done on the developer’s machine                       | Debugging must be done with another machine                                                                  |
-| Libraries             | Can use almost and C/C++ library (e.g. STL, boost)                                  | Most standard libraries cannot be used                                                                       |
+| IRQL                  | Always `PASSIVE_LEVEL (0)`                                                          | May be `DISPATCH_LEVEL (2)` or higher                                                                        |
+| Return values         | API errors are sometimes ignored                                                    | Should almost never ignore errors                                                                            |
+| Bad Coding            | Typically localized to the process                                                  | Can affect the entire system                                                                                 |
+| Testing and Debugging | Typical testing and debugging done on the developer’s machine                       | Debugging must usually be done with another machine                                                          |
+| Libraries             | Can use almost any C/C++ library (e.g. STL, Boost)                                  | Most standard libraries cannot be used                                                                       |
 | Exception Handling    | Can use C++ exceptions or Structured Exception Handling (SEH)                       | Only SEH can be used                                                                                         |
-| C++ usage             | Full C++ runtime available                                                          | No C++ runtime                                                                                               |
+| C++ Usage             | Full C++ runtime available                                                          | No C++ runtime                                                                                               |
 
 ---
 
-## The Kernel API
+# The Kernel API
 
-Kernel drivers use exported functions from kernel components. These functions will be referred to as the Kernel API. Most functions are implemented within the kernel module itself (NtOskrnl.exe), but some may be implemented by other kernel modules, such the HAL (hal.dll).
+Kernel drivers use exported functions from kernel components. These functions are referred to as the **Kernel API**. Most functions are implemented within the kernel module itself (`ntoskrnl.exe`), but some may be implemented by other kernel modules such as the HAL (`hal.dll`).
 
-| Prefix | Meaning                            | Example                    |
-| ------ | ---------------------------------- | -------------------------- |
-| Ex     | general executive functions        | ExAllocatePoolWithTag      |
-| Ke     | general kernel functions           | KeAcquireSpinLock          |
-| Mm     | memory manager                     | MmProbeAndLockPages        |
-| Rtl    | general runtime lib                | RtlInitUnicodeString       |
-| FsRtl  | file system Rtl                    | FsRtlGetFileSize           |
-| Flt    | file system mini filter            | FltCreateFile              |
-| Ob     | object manager                     | ObReferenceObject          |
-| Io     | I/O manager                        | IoCompleteRequest          |
-| Se     | Security                           | SeAccessCheck              |
-| Ps     | Process manager                    | PsLookupProcessByProcessId |
-| Po     | Power manager                      | PoSetSystemState           |
-| Wmi    | windows management instrumentation | WmiTraceMessage            |
-| Zw     | native API wrappers                | ZwCreateFile               |
-| Hal    | Hardware abstraction layer         | HalExamineMBR              |
-| Cm     | Config manager                     | CmRegisterCallbackEx       |
+| Prefix  | Meaning                            | Example                      |
+| ------- | ---------------------------------- | ---------------------------- |
+| `Ex`    | General executive functions        | `ExAllocatePoolWithTag`      |
+| `Ke`    | General kernel functions           | `KeAcquireSpinLock`          |
+| `Mm`    | Memory manager                     | `MmProbeAndLockPages`        |
+| `Rtl`   | General runtime library            | `RtlInitUnicodeString`       |
+| `FsRtl` | File system RTL                    | `FsRtlGetFileSize`           |
+| `Flt`   | File system mini-filter            | `FltCreateFile`              |
+| `Ob`    | Object manager                     | `ObReferenceObject`          |
+| `Io`    | I/O manager                        | `IoCompleteRequest`          |
+| `Se`    | Security                           | `SeAccessCheck`              |
+| `Ps`    | Process manager                    | `PsLookupProcessByProcessId` |
+| `Po`    | Power manager                      | `PoSetSystemState`           |
+| `Wmi`   | Windows Management Instrumentation | `WmiTraceMessage`            |
+| `Zw`    | Native API wrappers                | `ZwCreateFile`               |
+| `Hal`   | Hardware abstraction layer         | `HalExamineMBR`              |
+| `Cm`    | Config manager                     | `CmRegisterCallbackEx`       |
 
->[!Note]
->If you take a look at the exported functions list from NtOsKrnl.exe, you’ll find many functions that are not documented in the Windows Driver Kit
+> **Note**
+>
+> If you look at the exported functions list from `ntoskrnl.exe`, you’ll find many functions that are not documented in the Windows Driver Kit.
 
+---
 
-## Dynamic memory allocation
+# Dynamic Memory Allocation
 
-Drivers often need to allocate memory dynamically. As discussed in chapter 1, kernel thread stack size is rather small, so any large chunk of memory should be allocated dynamically.
+Drivers often need to allocate memory dynamically. As discussed in Chapter 1, kernel thread stack size is rather small, so any large chunk of memory should be allocated dynamically.
 
-The kernel provides two general memory pools for drivers to use (the kernel itself uses them as well). 
-- Paged pool - memory pool that can be paged out if required. 
--  Non-Paged Pool - memory pool that is never paged out and is guaranteed to remain in RAM.
+The kernel provides two general memory pools for drivers to use:
 
->[!Note]
->Clearly, the non-paged pool is a “better” memory pool as it can never incur a page fault.
+* **Paged Pool** — Memory pool that can be paged out if required.
+* **Non-Paged Pool** — Memory pool that is never paged out and is guaranteed to remain in RAM.
 
-Drivers should use this pool sparingly, only when necessary. In all other cases, drivers should use the paged pool. The `POOL_TYPE` enumeration represents the pool types. This enumeration includes many “types” of pools, but only three should be used by drivers: `PagedPool, NonPagedPool, NonPagedPoolNx (non-page pool without execute permissions)`.
+> **Note**
+>
+> The non-paged pool is a “better” memory pool because it can never incur a page fault.
 
+Drivers should use this pool sparingly and only when necessary. In most other cases, drivers should use the paged pool.
 
-| Function                     | Description                                                                                                                                            |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ExAllocatePool`             | Allocate memory from one of the pools with a default tag. This function is considered obsolete. The next function in this table should be used instead |
-| `ExAllocatePoolWithTag`      | Allocate memory from one of the pools with the specified tag                                                                                           |
-| `ExAllocatePoolZero`         | Same as ExAllocatePoolWithTag, but zeroes out the memory block                                                                                         |
-| `ExAllocatePoolWithQuotaTag` | Allocate memory from one of the pools with the specified tag and charge the current process quota for the allocation                                   |
-| `ExFreePool`                 | Free an allocation. The function knows from which pool the allocation was made                                                                         |
+The `POOL_TYPE` enumeration represents the pool types. Although the enumeration contains many pool variants, drivers commonly use only:
 
->[!Tip]
->ExAllocatePool calls ExAllocatePoolWithTag using the tag enoN (the word “none” in reverse). Older Windows versions used ‘ mdW (WDM in reverse). 
->You should avoid this function and use ExAllocatePoolWithTag‘ instead. ExAllocatePoolZero is implemented inline in wdm.h by calling ExAllocatePoolWithTag and adding the POOL_ZERO_ALLOCATION (=1024) flag to the pool type.
+* `PagedPool`
+* `NonPagedPool`
+* `NonPagedPoolNx` (non-paged pool without execute permissions)
 
-### Sample code
-```c++
+| Function                     | Description                                                          |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `ExAllocatePool`             | Allocates memory from one of the pools with a default tag. Obsolete. |
+| `ExAllocatePoolWithTag`      | Allocates memory from one of the pools with a specified tag          |
+| `ExAllocatePoolZero`         | Same as `ExAllocatePoolWithTag`, but zeroes the allocated memory     |
+| `ExAllocatePoolWithQuotaTag` | Allocates memory and charges the current process quota               |
+| `ExFreePool`                 | Frees allocated memory                                               |
+
+> **Tip**
+>
+> `ExAllocatePool` internally calls `ExAllocatePoolWithTag` using the tag `enoN` (`none` reversed).
+>
+> Older Windows versions used `mdW` (`WDM` reversed).
+>
+> Prefer using `ExAllocatePoolWithTag` instead.
+
+## Sample Code
+
+```cpp
 #include <ntddk.h>
 #include <ntstatus.h>
 #include <wdm.h>
+
 #define DRIVER_TAG 'dcba'
 
 void SampleUnload(_In_ PDRIVER_OBJECT DriverObject) {
-	UNREFERENCED_PARAMETER(DriverObject);
-	DbgPrint(("Sample Driver Unload called\n"));
+    UNREFERENCED_PARAMETER(DriverObject);
+    DbgPrint(("Sample Driver Unload called\n"));
 }
 
 UNICODE_STRING g_RegistryPath;
-extern "C" NTSTATUS
-DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath) {
-	UNREFERENCED_PARAMETER(RegistryPath);
 
-	DriverObject->DriverUnload = SampleUnload;
-	DbgPrint(("Sample driver initialized successfully\n"));
-	g_RegistryPath.Buffer = (WCHAR*)ExAllocatePool2(PagedPool, RegistryPath->Length, DRIVER_TAG);
-	if (g_RegistryPath.Buffer == nullptr) {
-		DbgPrint(("Failed to allocate memory\n"));
-		return STATUS_INSUFFICIENT_RESOURCES;
-	}
-	g_RegistryPath.MaximumLength = RegistryPath->Length;
-	RtlCopyUnicodeString(&g_RegistryPath, (PUNICODE_STRING)RegistryPath);
-	DbgPrint(("Original registry path: %wZ\n"),RegistryPath);
-	DbgPrint(("Copied registry path: %wZ\n"), &g_RegistryPath);
+extern "C"
+NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath) {
+    UNREFERENCED_PARAMETER(RegistryPath);
 
-	
-	OSVERSIONINFOW osv = {0};
-	osv.dwOSVersionInfoSize = sizeof(OSVERSIONINFOW);
-	if (NT_SUCCESS(RtlGetVersion(_Out_ &osv))) {
-		DbgPrint(("OS Major Version:%lu\n"), osv.dwMajorVersion);
-		DbgPrint(("OS Minor Version:%lu\n"), osv.dwMinorVersion);
-		DbgPrint(("OS build Number:%lu\n"), osv.dwBuildNumber);
-	}
+    DriverObject->DriverUnload = SampleUnload;
 
-	return STATUS_SUCCESS;
+    DbgPrint(("Sample driver initialized successfully\n"));
+
+    g_RegistryPath.Buffer = (WCHAR*)ExAllocatePool2(
+        PagedPool,
+        RegistryPath->Length,
+        DRIVER_TAG
+    );
+
+    if (g_RegistryPath.Buffer == nullptr) {
+        DbgPrint(("Failed to allocate memory\n"));
+        return STATUS_INSUFFICIENT_RESOURCES;
+    }
+
+    g_RegistryPath.MaximumLength = RegistryPath->Length;
+
+    RtlCopyUnicodeString(
+        &g_RegistryPath,
+        (PUNICODE_STRING)RegistryPath
+    );
+
+    DbgPrint(("Original registry path: %wZ\n"), RegistryPath);
+    DbgPrint(("Copied registry path: %wZ\n"), &g_RegistryPath);
+
+    OSVERSIONINFOW osv = {0};
+    osv.dwOSVersionInfoSize = sizeof(OSVERSIONINFOW);
+
+    if (NT_SUCCESS(RtlGetVersion(&osv))) {
+        DbgPrint(("OS Major Version: %lu\n"), osv.dwMajorVersion);
+        DbgPrint(("OS Minor Version: %lu\n"), osv.dwMinorVersion);
+        DbgPrint(("OS Build Number: %lu\n"), osv.dwBuildNumber);
+    }
+
+    return STATUS_SUCCESS;
 }
 ```
 
-## Linked Lists
+---
 
-The kernel uses circular doubly linked lists in many of its internal data structures. For example, all processes on the system are managed by `EPROCESS` structures, connected in a `circular doubly linked list`, where its head is stored the kernel variable `PsActiveProcessHead`.
+# Linked Lists
 
-```c++
-typedef struct _LIST_ENTRY{
-	struct _LIST_ENTRY *Flink;
-	struct _LIST_ENTRY *Blink;
+The Windows kernel uses circular doubly linked lists in many of its internal data structures.
+
+For example, all processes on the system are managed by `EPROCESS` structures connected in a circular doubly linked list. The head of this list is stored in the kernel variable `PsActiveProcessHead`.
+
+```cpp
+typedef struct _LIST_ENTRY {
+    struct _LIST_ENTRY* Flink;
+    struct _LIST_ENTRY* Blink;
 } LIST_ENTRY, *PLIST_ENTRY;
 ```
 
- One such structure is embedded inside the real structure of interest. For example, in the `EPROCESS` structure, the member `ActiveProcessLinks` is of type `LIST_ENTRY`, pointing to the next and previous `LIST_ENTRY` objects of other `EPROCESS` structures. 
- The head of a list is stored separately; in the case of the process, that’s `PsActiveProcessHead`. To get the pointer to the actual structure of interest given the address of a `LIST_ENTRY` can be obtained with the `CONTAINING_RECORD` macro.
+A `LIST_ENTRY` is embedded inside another structure.
 
-When working with these linked lists, we have a head for the list, stored in a variable. This means that natural traversal is done by using the `Flink` member of the list to point to the next `LIST_ENTRY` in the list. Given a pointer to the `LIST_ENTRY`, what we’re really after is the `MyDataItem` that contains this list entry member. This is where the `CONTAINING_RECORD` comes in:
+For example, the `EPROCESS` structure contains a member named `ActiveProcessLinks` of type `LIST_ENTRY`.
 
-#### The common functions that are used while working with the above linked lists are listed below:-
+To retrieve the parent structure from a `LIST_ENTRY`, the kernel uses the `CONTAINING_RECORD` macro.
 
-| $\color{Aquamarine}Function$  | $\color{CadetBlue}Description$                                                                            |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `InitializeListHead`          | Initializes a list head to make an empty list. The forward and back pointers point to the forward pointer |
-| `InsertHeadList`              | Insert an item to the head of the list.                                                                   |
-| `InsertTailList`              | Insert an item to the tail of the list.                                                                   |
-| `IsListEmpty`                 | Check if the list is empty.                                                                               |
-| `RemoveHeadList`              | Remove the head of the list.                                                                              |
-| `RemoveTailList`              | Remove the tail of the list.                                                                              |
-| `RemoveEntryList`             | Remove the specific item from the list.                                                                   |
-| `ExInterlockedInsertHeadList` | Insert an item at the head of the list atomically by using the specified spinlock.                        |
-| `ExInterlockedInsertTailList` | Insert an item at the tail of the list atomically by using the specified spinlock.                        |
-| `ExInterlockedRemoveHeadList` | Remove an item from the head of the list atomically by using the specified spinlock.                      |
+## Common Linked List Functions
 
-### The Driver Object
-```c++
-NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject,PUNICODE_STRING Registrypath)
+| Function                      | Description                                     |
+| ----------------------------- | ----------------------------------------------- |
+| `InitializeListHead`          | Initializes an empty list                       |
+| `InsertHeadList`              | Inserts an item at the head                     |
+| `InsertTailList`              | Inserts an item at the tail                     |
+| `IsListEmpty`                 | Checks whether the list is empty                |
+| `RemoveHeadList`              | Removes the head item                           |
+| `RemoveTailList`              | Removes the tail item                           |
+| `RemoveEntryList`             | Removes a specific item                         |
+| `ExInterlockedInsertHeadList` | Atomically inserts at the head using a spinlock |
+| `ExInterlockedInsertTailList` | Atomically inserts at the tail using a spinlock |
+| `ExInterlockedRemoveHeadList` | Atomically removes the head item                |
+
+---
+
+# The Driver Object
+
+```cpp
+NTSTATUS DriverEntry(
+    PDRIVER_OBJECT DriverObject,
+    PUNICODE_STRING RegistryPath
+)
 ```
 
-From the declaration it's quite obvious it accepts two arguments, the first is driver object, and another a `UNICODE_STRING`. The role of the driver at this point is to further initialize the structure to indicate what operations are supported by the driver.
+The `DriverEntry` routine accepts two parameters:
 
-The other important set of operations to initialize are called Dispatch Routines. This is an array of function pointers, stored in the in the MajorFunction member of `DRIVER_OBJECT`. This set specifies which operations the driver supports, such as Create, Read, Write, and so on.
+1. `DriverObject`
+2. `RegistryPath`
 
+The driver uses the `DriverObject` structure to initialize supported driver operations.
 
-| $\color{Brown}Major Functions$   | $\color{Green}Description$                                                                                                      |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `IRP_MJ_CREATE`                  | Create operation. Typically invoked for `CreateFile` or `ZwCreateFile` calls.                                                   |
-| `IRP_MJ_CLOSE`                   | Close operation. Normally invoked for `CloseHandle or ZwClose`                                                                  |
-| `IRP_MJ_READ`                    | Read operation. Typically invoked for `ReadFile, ZwReadFile` and similar read APIs.                                             |
-| `IRP_MJ_DEVICE_CONTROL`          | Write operation. Typically invoked for `WriteFile, ZwWriteFile`, and similar write APIs                                         |
-| `IRP_MJ_INTERNAL_DEVICE CONTROL` | Generic call to a driver, invoked because of `DeviceIoControl` or `ZwDeviceIoControlFile` calls                                 |
-| `IRP_MJ_SHUTDOWN`                | Similar to the previous one, but only available for kernel-mode callers.                                                        |
-| `IRP_MJ_CLEANUP`                 | Called when the system shuts down if the driver has registered for shutdown notification with `IoRegisterShutdownNotification`. |
-| `IRP_MJ_PNP`                     | Invoked when the last handle to a file object is closed, but the file object’s reference count is not zero                      |
-| `IRP_MJ_POWER`                   | Power callback invoked by the Power Manager. Generally interesting for hardware-based drivers or filters to such drivers.       |
+One important part of `DRIVER_OBJECT` is the `MajorFunction` array.
 
-### Object Attributes
-One of the common structures that shows up in many kernel APIs is OBJECT_ATTRIBUTES, defined like so:
-```c++
-typedef struct _OBJECT_ATTRIBUTES{
-	ULONG Length;
-	HANDLE RootDirectory;
-	PUNICODE_STRING ObjectName;
-	ULONG Attributes;
-	PVOID SecurityDescriptors;
-	PVOID SecurityQualityOfService;
+This array stores dispatch routines for different I/O request types.
+
+## Major Functions
+
+| Major Function                   | Description                                           |
+| -------------------------------- | ----------------------------------------------------- |
+| `IRP_MJ_CREATE`                  | Create operation (`CreateFile`, `ZwCreateFile`)       |
+| `IRP_MJ_CLOSE`                   | Close operation (`CloseHandle`, `ZwClose`)            |
+| `IRP_MJ_READ`                    | Read operation (`ReadFile`, `ZwReadFile`)             |
+| `IRP_MJ_WRITE`                   | Write operation (`WriteFile`, `ZwWriteFile`)          |
+| `IRP_MJ_DEVICE_CONTROL`          | Invoked through `DeviceIoControl`                     |
+| `IRP_MJ_INTERNAL_DEVICE_CONTROL` | Similar to device control but for kernel-mode callers |
+| `IRP_MJ_SHUTDOWN`                | Invoked during system shutdown                        |
+| `IRP_MJ_CLEANUP`                 | Invoked when the last handle to a file object closes  |
+| `IRP_MJ_PNP`                     | Plug and Play callback                                |
+| `IRP_MJ_POWER`                   | Power manager callback                                |
+
+---
+
+# Object Attributes
+
+A common structure used by many kernel APIs is `OBJECT_ATTRIBUTES`.
+
+```cpp
+typedef struct _OBJECT_ATTRIBUTES {
+    ULONG Length;
+    HANDLE RootDirectory;
+    PUNICODE_STRING ObjectName;
+    ULONG Attributes;
+    PVOID SecurityDescriptor;
+    PVOID SecurityQualityOfService;
 } OBJECT_ATTRIBUTES;
-typedef OBJECT_ATTRIBUTES,*POBJECT_ATTRIBUTES;
-typedef const OBJECT_ATTRIBUTES,*POBJECT_ATTRIBUTES;
+
+typedef OBJECT_ATTRIBUTES* POBJECT_ATTRIBUTES;
+typedef const OBJECT_ATTRIBUTES* PCOBJECT_ATTRIBUTES;
 ```
 
-The structure is typically initialized with the` InitializeObjectAttributes macro`, that allows specifying all the structure members except Length (set automatically by the macro), and `SecurityQualityOfService`, which is not normally needed. Here is the description of the members:
+The structure is typically initialized using the `InitializeObjectAttributes` macro.
 
-### Object Attributes flags
+## Object Attribute Flags
 
-| Flag(OBJ_)                             | Description                                                                                                                                                                                                                                      |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `INHERIT`(2)                           | The returned handle should be marked as inheritable                                                                                                                                                                                              |
-| `PERMANENT`(0X10)                      | The object created should be marked as permanent. Permanent objects have an additional reference count that prevents them from dying even if all handles to them are closed                                                                      |
-| `EXCLUSIVE`(0X20)                      | If creating an object, the object is created with exclusive access. No other handles can be opened to the object. If opening an object, exclusive access is requested, which is granted only if the object was originally created with this flag |
-| `CASE_INSENSITIVE`(0X40)               | When opening an object, perform a case insensitive search for its name. Without this flag, the name must match exactly                                                                                                                           |
-| `OPENIF`(0X80)                         | Open the object if it exists. Otherwise, fail the operation (don’t create a new object)                                                                                                                                                          |
-| `OPENLINK`(0X100)                      | If the object to open is a symbolic link object, open the symbolic link object itself, rather than following the symbolic link to its target                                                                                                     |
-| `KERNEL_HANDLE`(0X200)                 | The returned handle should be a kernel handle. Kernel handles are valid in any process context, and cannot be used by user mode code                                                                                                             |
-| `FORCE_ACCESS_CHECK`(0X400)            | Access checks should be performed even if the object is opened in `KernelMode` access mode                                                                                                                                                       |
-| `IGNORE_IMPERSONATED_DEVICEMAP`(0X800) | Use the process device map instead of the user’s if it’s impersonating (consult the documentation for more information on device maps)                                                                                                           |
-| `DONT_REPARSE`(0X1000)                 | Don’t follow a reparse point, if encountered. Instead an error is returned (`STATUS_REPARSE_POINT_ENCOUNTERED`).                                                                                                                                 |
+| Flag                                | Description                                              |
+| ----------------------------------- | -------------------------------------------------------- |
+| `OBJ_INHERIT`                       | Returned handle is inheritable                           |
+| `OBJ_PERMANENT`                     | Object remains alive even after all handles are closed   |
+| `OBJ_EXCLUSIVE`                     | Object allows exclusive access                           |
+| `OBJ_CASE_INSENSITIVE`              | Performs case-insensitive lookup                         |
+| `OBJ_OPENIF`                        | Opens existing object if it exists                       |
+| `OBJ_OPENLINK`                      | Opens the symbolic link itself instead of resolving it   |
+| `OBJ_KERNEL_HANDLE`                 | Creates a kernel-only handle                             |
+| `OBJ_FORCE_ACCESS_CHECK`            | Forces access checks even in kernel mode                 |
+| `OBJ_IGNORE_IMPERSONATED_DEVICEMAP` | Uses process device map instead of impersonated user map |
+| `OBJ_DONT_REPARSE`                  | Prevents following reparse points                        |
