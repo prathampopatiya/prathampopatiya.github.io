@@ -11,18 +11,17 @@ author: "rayqu4z4"
 
 ## Differences Between User Mode and Kernel Mode Development
 
-| Specification         | User Mode                                                                           | Kernel Mode                                                                                                  |
-| --------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Unhandled exceptions  | Crashes the process                                                                 | Crashes the system                                                                                           |
-| Terminations          | When a process terminates, all private memory and resources are freed automatically | If a driver unloads without freeing everything it was using, there is a leak, only resolved in the next boot |
-| IRQL                  | Always `PASSIVE_LEVEL (0)`                                                          | May be `DISPATCH_LEVEL (2)` or higher                                                                        |
-| Return values         | API errors are sometimes ignored                                                    | Should almost never ignore errors                                                                            |
-| Bad Coding            | Typically localized to the process                                                  | Can affect the entire system                                                                                 |
-| Testing and Debugging | Typical testing and debugging done on the developer’s machine                       | Debugging must usually be done with another machine                                                          |
-| Libraries             | Can use almost any C/C++ library (e.g. STL, Boost)                                  | Most standard libraries cannot be used                                                                       |
-| Exception Handling    | Can use C++ exceptions or Structured Exception Handling (SEH)                       | Only SEH can be used                                                                                         |
-| C++ Usage             | Full C++ runtime available                                                          | No C++ runtime                                                                                               |
-
+| Specification | User Mode | Kernel Mode |
+|---|---|---|
+| Unhandled exceptions | Crashes the process | Crashes the system |
+| Terminations | When a process terminates, all private memory and resources are freed automatically | If a driver unloads without freeing everything it was using, there is a leak, only resolved in the next boot |
+| IRQL | `PASSIVE_LEVEL (0)` | `DISPATCH_LEVEL (2)` or higher |
+| Return values | API errors are sometimes ignored | Should almost never ignore errors |
+| Bad Coding | Typically localized to the process | Can affect the entire system |
+| Testing and Debugging | Typical testing and debugging done on the developer’s machine | Debugging must usually be done with another machine |
+| Libraries | Can use almost any C/C++ library (e.g. STL, Boost) | Most standard libraries cannot be used |
+| Exception Handling | Can use C++ exceptions or Structured Exception Handling (SEH) | Only SEH can be used |
+| C++ Usage | Full C++ runtime available | No C++ runtime |
 ---
 
 # The Kernel API
