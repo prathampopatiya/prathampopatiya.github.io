@@ -99,7 +99,7 @@
 
 /* Code block styling */
 pre {
-  @apply bg-card border border-border rounded-lg p-4 overflow-x-auto font-mono text-sm;
+  @apply bg-card border border-border rounded-xl p-4 overflow-x-auto font-mono text-sm;
 }
 
 code {
@@ -108,6 +108,73 @@ code {
 
 pre code {
   @apply text-foreground;
+}
+
+/* Prism syntax highlighting tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #f8fafc;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #fb7185;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #7dd3fc;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #fcd34d;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #93c5fd;
+}
+
+.token.keyword,
+.token.important,
+.token.regex {
+  color: #e879f9;
+}
+
+.token.bold,
+.token.important {
+  font-weight: 700;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
 }
 
 /* Markdown content styling */
