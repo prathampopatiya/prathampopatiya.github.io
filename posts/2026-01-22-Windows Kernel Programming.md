@@ -3,7 +3,7 @@ tags:
   - WindowsInternals
   - kernel
   - Programming
-date: 22-01-26
+date: 2026-05-10
 Author: Pratham Popatiya
 title: Windows kernel Programming
 ---
