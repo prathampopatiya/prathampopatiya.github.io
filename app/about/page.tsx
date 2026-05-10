@@ -90,7 +90,7 @@ export default function AboutPage() {
               </h2>
               <div className="flex flex-wrap gap-4">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/prathampopatiya" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 rounded transition-colors"
@@ -100,7 +100,7 @@ export default function AboutPage() {
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <a 
-                  href="https://twitter.com" 
+                  href="https://twitter.com/prathampopatiya" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 rounded transition-colors"
@@ -110,7 +110,7 @@ export default function AboutPage() {
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <a 
-                  href="mailto:your@email.com"
+                  href="mailto:prathampopatiya17@gmail.com"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 rounded transition-colors"
                 >
                   <Mail className="h-4 w-4" />

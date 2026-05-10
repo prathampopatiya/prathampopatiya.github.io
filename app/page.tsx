@@ -22,7 +22,7 @@ export default function Home() {
               {'>'} whoami
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 glitch text-balance">
-              Security Researcher
+              rayqu4z4
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
               Diving deep into binaries, dissecting malware, and exploring the 

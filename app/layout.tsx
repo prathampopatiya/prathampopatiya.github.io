@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Security Research Blog',
-  description: 'Reverse Engineering, Malware Analysis, and Low-Level Security Research',
+  title: ' rayqu4z4\'s Security Research Blog',
+  description: 'Reverse Engineering, Malware development,Game Security,and Low-Level Security Research',
   keywords: ['security', 'reverse engineering', 'malware analysis', 'exploit development', 'binary analysis'],
 }
 
