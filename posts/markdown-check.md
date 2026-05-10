@@ -1,25 +1,166 @@
-Windows Kernel Programming basics
-Windows Internals
-Kernel Programming
-Kernel Programming Basics
-Differences Between User Mode and Kernel Mode Development
-| Specification | User Mode | Kernel Mode | |---|---|---| | Unhandled exceptions | Crashes the process | Crashes the system | | Terminations | When a process terminates, all private memory and resources are freed automatically | If a driver unloads without freeing everything it was using, there is a leak, only resolved in the next boot | | IRQL | PASSIVE_LEVEL (0) | DISPATCH_LEVEL (2) or higher | | Return values | API errors are sometimes ignored | Should almost never ignore errors | | Bad Coding | Typically localized to the process | Can affect the entire system | | Testing and Debugging | Typical testing and debugging done on the developer’s machine | Debugging must usually be done with another machine | | Libraries | Can use almost any C/C++ library (e.g. STL, Boost) | Most standard libraries cannot be used | | Exception Handling | Can use C++ exceptions or Structured Exception Handling (SEH) | Only SEH can be used | | C++ Usage | Full C++ runtime available | No C++ runtime |
-The Kernel API
-Kernel drivers use exported functions from kernel components. These functions are referred to as the Kernel API. Most functions are implemented within the kernel module itself (ntoskrnl.exe), but some may be implemented by other kernel modules such as the HAL (hal.dll).
+---
+title: "Markdown Syntax Guide"
+date: "2026-05-10"
+excerpt: "A complete reference for all supported markdown features on this blog"
+tags: ["guide", "markdown", "reference"]
+author: "rayqu4z4"
+---
 
-| Prefix | Meaning | Example | | ------- | ---------------------------------- | ---------------------------- | | Ex | General executive functions | ExAllocatePoolWithTag | | Ke | General kernel functions | KeAcquireSpinLock | | Mm | Memory manager | MmProbeAndLockPages | | Rtl | General runtime library | RtlInitUnicodeString | | FsRtl | File system RTL | FsRtlGetFileSize | | Flt | File system mini-filter | FltCreateFile | | Ob | Object manager | ObReferenceObject | | Io | I/O manager | IoCompleteRequest | | Se | Security | SeAccessCheck | | Ps | Process manager | PsLookupProcessByProcessId | | Po | Power manager | PoSetSystemState | | Wmi | Windows Management Instrumentation | WmiTraceMessage | | Zw | Native API wrappers | ZwCreateFile | | Hal | Hardware abstraction layer | HalExamineMBR | | Cm | Config manager | CmRegisterCallbackEx |
+# Headings
 
-Note
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
 
-If you look at the exported functions list from ntoskrnl.exe, you’ll find many functions that are not documented in the Windows Driver Kit.
+---
 
-Dynamic Memory Allocation
-Drivers often need to allocate memory dynamically. As discussed in Chapter 1, kernel thread stack size is rather small, so any large chunk of memory should be allocated dynamically.
+# Text Formatting
 
-The kernel provides two general memory pools for drivers to use:
+This is **bold text** and this is *italic text*.
 
-Paged Pool — Memory pool that can be paged out if required.
-Non-Paged Pool — Memory pool that is never paged out and is guaranteed to remain in RAM.
-Note
+This is ***bold and italic*** together.
 
-The non-paged pool is a “better” memory pool because it can never incur a page fault.
+This is ~~strikethrough~~ text.
+
+This is `inline code` within a sentence.
+
+---
+
+# Tables
+
+Tables must have each row on a **separate line**:
+
+| Specification | User Mode | Kernel Mode |
+|---------------|-----------|-------------|
+| Unhandled exceptions | Crashes the process | Crashes the system |
+| Terminations | Private memory freed automatically | Must free everything manually |
+| IRQL | PASSIVE_LEVEL (0) | DISPATCH_LEVEL (2) or higher |
+| Bad Coding | Localized to process | Affects entire system |
+
+Another table example:
+
+| Prefix | Meaning | Example |
+|--------|---------|---------|
+| Ex | General executive functions | ExAllocatePoolWithTag |
+| Ke | General kernel functions | KeAcquireSpinLock |
+| Mm | Memory manager | MmProbeAndLockPages |
+| Rtl | General runtime library | RtlInitUnicodeString |
+| Io | I/O manager | IoCompleteRequest |
+| Zw | Native API wrappers | ZwCreateFile |
+
+---
+
+# Code Blocks
+
+## C Code
+
+```c
+#include <ntddk.h>
+
+NTSTATUS DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath) {
+    UNREFERENCED_PARAMETER(RegistryPath);
+    
+    DriverObject->DriverUnload = DriverUnload;
+    
+    DbgPrint("Driver loaded successfully\n");
+    return STATUS_SUCCESS;
+}
+
+void DriverUnload(PDRIVER_OBJECT DriverObject) {
+    UNREFERENCED_PARAMETER(DriverObject);
+    DbgPrint("Driver unloaded\n");
+}
+```
+
+## Assembly
+
+```asm
+section .text
+global _start
+
+_start:
+    xor eax, eax        ; Clear EAX
+    mov ebx, 0x41414141 ; Move value to EBX
+    push ebx            ; Push to stack
+    call some_function  ; Call function
+    ret
+```
+
+## Python
+
+```python
+import pefile
+
+def analyze_pe(file_path):
+    pe = pefile.PE(file_path)
+    
+    print(f"Entry Point: {hex(pe.OPTIONAL_HEADER.AddressOfEntryPoint)}")
+    print(f"Image Base: {hex(pe.OPTIONAL_HEADER.ImageBase)}")
+    
+    for section in pe.sections:
+        print(f"Section: {section.Name.decode().strip()}")
+```
+
+---
+
+# Lists
+
+## Unordered List
+
+- First item
+- Second item
+  - Nested item
+  - Another nested item
+- Third item
+
+## Ordered List
+
+1. First step
+2. Second step
+3. Third step
+   1. Sub-step A
+   2. Sub-step B
+
+---
+
+# Blockquotes
+
+> This is a blockquote. Use it for notes or important callouts.
+
+> **Note:** The non-paged pool is a "better" memory pool because it can never incur a page fault.
+
+> **Warning:** Kernel code runs at high privilege. A bug can crash the entire system.
+
+> **Tip:** Always check return values in kernel mode development.
+
+---
+
+# Links and Images
+
+[Link to Google](https://google.com)
+
+[Link to my GitHub](https://github.com/prathampopatiya)
+
+---
+
+# Horizontal Rules
+
+Use three dashes for a horizontal rule:
+
+---
+
+# Nested Content
+
+> **Memory Pools in Windows Kernel:**
+>
+> - **Paged Pool** — Can be paged out if required
+> - **Non-Paged Pool** — Never paged out, guaranteed in RAM
+>
+> Choose wisely based on your IRQL requirements.
+
+---
+
+# Inline Elements Mixed
+
+Here is some `ExAllocatePoolWithTag` code that allocates memory from the **non-paged pool**. See the [Microsoft Docs](https://docs.microsoft.com) for more details.
