@@ -1,11 +1,9 @@
 ---
-tags:
-  - WindowsInternals
-  - kernel
-  - Programming
-date: 2026-05-10
-Author: Pratham Popatiya
-title: Windows kernel Programming
+title: "Windows Kernel Programming basics"
+date: "2026-05-10"
+excerpt: "Getting started into Windows Kernel Programming"
+tags: ["Windows Internals", "Kernel Programming"]
+author: "rayqu4z4"
 ---
 
 ## Kernel Programming basics
