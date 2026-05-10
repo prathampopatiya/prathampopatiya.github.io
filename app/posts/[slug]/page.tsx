@@ -8,6 +8,10 @@ import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
   const posts = getAllPostSlugs()
+  // Return at least one placeholder if no posts exist to satisfy static export
+  if (posts.length === 0) {
+    return [{ slug: 'placeholder' }]
+  }
   return posts.map((post) => ({
     slug: post.slug,
   }))
