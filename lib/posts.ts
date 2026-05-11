@@ -4,6 +4,11 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 import gfm from 'remark-gfm'
+import rehypePrettyCode from 'rehype-pretty-code'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -77,11 +82,28 @@ export async function getPostData(slug: string): Promise<Post> {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const matterResult = matter(fileContents)
 
-  const processedContent = await remark()
-    .use(gfm)
-    .use(html, { sanitize: false })
-    .process(matterResult.content)
-  const contentHtml = processedContent.toString()
+  let contentHtml: string
+  try {
+    const processedContent = await unified()
+      .use(remarkParse)
+      .use(gfm)
+      .use(remarkRehype)
+      .use(rehypePrettyCode, {
+        theme: 'one-dark-pro',
+        keepBackground: true,
+      })
+      .use(rehypeStringify)
+      .process(matterResult.content)
+    
+    contentHtml = String(processedContent)
+  } catch (error) {
+    console.error('Failed to parse with rehype-pretty-code:', error)
+    const processedContent = await remark()
+      .use(gfm)
+      .use(html, { sanitize: false })
+      .process(matterResult.content)
+    contentHtml = processedContent.toString()
+  }
 
   // Calculate reading time
   const wordCount = matterResult.content.split(/\s+/).length

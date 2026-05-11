@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { Terminal, Github, Twitter, Rss } from 'lucide-react'
+import { Terminal, Github, Twitter, Rss, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export function Header() {
   const [typedText, setTypedText] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const fullText = '~/security-research'
 
   useEffect(() => {
@@ -36,7 +37,8 @@ export function Header() {
           </div>
         </Link>
 
-        <div className="flex items-center gap-6">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
           <Link 
             href="/" 
             className="text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
@@ -84,7 +86,72 @@ export function Header() {
             </Link>
           </div>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center">
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-border bg-background px-4 py-4 space-y-4">
+          <Link 
+            href="/" 
+            className="block text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            [home]
+          </Link>
+          <Link 
+            href="/posts" 
+            className="block text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            [posts]
+          </Link>
+          <Link 
+            href="/about" 
+            className="block text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            [about]
+          </Link>
+          <div className="flex items-center gap-4 pt-4 border-t border-border">
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter className="h-5 w-5" />
+            </a>
+            <Link 
+              href="/rss.xml"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="RSS Feed"
+            >
+              <Rss className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
