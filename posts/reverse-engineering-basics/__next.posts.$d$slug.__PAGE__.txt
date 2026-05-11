@@ -1,0 +1,120 @@
+1:"$Sreact.fragment"
+2:I[23157,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/10o61nt~26_4f.js"],"MatrixRain"]
+3:I[13293,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/10o61nt~26_4f.js"],"Header"]
+4:I[3840,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/10o61nt~26_4f.js"],""]
+f:I[7193,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/10o61nt~26_4f.js"],"HexDecoration"]
+10:I[81597,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js"],"OutletBoundary"]
+11:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen flex flex-col relative","children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","main",null,{"className":"flex-1 relative z-10 container mx-auto px-4 py-16","children":["$","article",null,{"className":"max-w-3xl mx-auto","children":[["$","$L4",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"cd ../posts"]}],["$","header",null,{"className":"mb-12","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4 font-mono","children":[["$","span",null,{"className":"flex items-center gap-1","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar h-4 w-4","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"May 11, 2026"]}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock h-4 w-4","aria-hidden":"true","children":[["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],"$undefined"]}],3," min read"]}],["$","span",null,{"children":["by ","rayqu4z4"]}]]}],["$","h1",null,{"className":"text-3xl md:text-4xl lg:text-5xl font-bold mb-4 glitch text-balance","children":"Reverse Engineering a Simple Binary"}],["$","div",null,{"className":"flex flex-wrap gap-3 mb-6","children":[["$","span",null,{"className":"inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono border border-primary/30","children":[["$","span",null,{"children":"🔍"}],"reverse engineering"]}],["$","span",null,{"className":"inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono border bg-blue-500/20 text-blue-400 border-blue-500/50","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-circle-alert h-3 w-3","aria-hidden":"true","children":[["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],["$","line","1pkeuh",{"x1":"12","x2":"12","y1":"8","y2":"12"}],["$","line","4dfq90",{"x1":"12","x2":"12.01","y1":"16","y2":"16"}],"$undefined"]}],"LOW"]}]]}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","reverse-engineering",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"reverse-engineering"]}],["$","span","binary-analysis",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":["$L5","$L6","$undefined"]}],"binary-analysis"]}],"$L7","$L8"]}]]}],"$L9","$La"]}]}],"$Lb"]}],["$Lc"],"$Ld"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"4S-pyptyhfPPjQmXk6iYf"}
+5:["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}]
+6:["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}]
+7:["$","span","tutorial",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"tutorial"]}]
+8:["$","span","assembly",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"assembly"]}]
+e:Tf73,<h1>Reverse Engineering a Simple Binary</h1>
+<p>Reverse engineering is the process of discovering the principles, structure, and functioning of a system through analysis of its artifacts. In this post, we'll walk through reversing a simple C binary using common tools and techniques.</p>
+<h2>Tools You'll Need</h2>
+<p>Before we begin, make sure you have these tools installed:</p>
+<pre><code class="language-bash"># Install dependencies on Linux
+sudo apt-get install binutils gdb radare2
+
+# Or using homebrew on macOS
+brew install binutils gdb radare2
+</code></pre>
+<h2>The Binary</h2>
+<p>Let's start with this simple C program:</p>
+<pre><code class="language-c">#include &#x3C;stdio.h>
+#include &#x3C;string.h>
+
+int verify_password(char *input) {
+    char password[] = "superSecret123";
+    
+    if (strcmp(input, password) == 0) {
+        return 1;
+    }
+    return 0;
+}
+
+int main() {
+    char buffer[50];
+    
+    printf("Enter password: ");
+    scanf("%49s", buffer);
+    
+    if (verify_password(buffer)) {
+        printf("Access granted!\\n");
+    } else {
+        printf("Access denied!\\n");
+    }
+    
+    return 0;
+}
+</code></pre>
+<h2>Compilation and Initial Analysis</h2>
+<p>First, let's compile the binary with debugging symbols:</p>
+<pre><code class="language-bash">gcc -g -o verify_bin verify.c
+</code></pre>
+<p>Now let's examine it with <code>strings</code> to see what we can learn:</p>
+<pre><code class="language-bash">$ strings verify_bin | grep -i secret
+superSecret123
+</code></pre>
+<p><strong>Key Finding</strong>: The password is stored in plaintext in the binary. This is a common vulnerability in amateur code.</p>
+<h2>Disassembly with GDB</h2>
+<p>Let's use GDB to understand the assembly:</p>
+<pre><code class="language-bash">gdb ./verify_bin
+(gdb) disassemble main
+</code></pre>
+<p>Looking at the <code>main</code> function, we can see:</p>
+<ol>
+<li>Stack space is allocated for the buffer</li>
+<li><code>printf</code> is called to display the prompt</li>
+<li><code>scanf</code> reads user input</li>
+<li>The <code>verify_password</code> function is called</li>
+<li>Conditional jump based on the return value</li>
+</ol>
+<h2>Analysis of verify_password</h2>
+<p>The <code>verify_password</code> function contains:</p>
+<ul>
+<li>A stack-allocated string with the password</li>
+<li>A call to <code>strcmp</code> to compare input with the hardcoded password</li>
+<li>Returns 1 on success, 0 on failure</li>
+</ul>
+<h2>Security Implications</h2>
+<p>This binary demonstrates several security issues:</p>
+<ol>
+<li><strong>Plaintext Password Storage</strong>: The password is hardcoded and visible via <code>strings</code></li>
+<li><strong>No Input Validation</strong>: The scanf could be exploited with buffer overflow</li>
+<li><strong>Timing Attacks</strong>: The string comparison could leak information about correct characters</li>
+<li><strong>No Authentication Mechanism</strong>: Only a single string comparison for access</li>
+</ol>
+<h2>Proper Implementation</h2>
+<p>Here's how this should be done in a real application:</p>
+<pre><code class="language-c">#include &#x3C;stdio.h>
+#include &#x3C;string.h>
+#include &#x3C;crypt.h>
+
+int verify_password(const char *input, const char *hash) {
+    // Use a proper hashing algorithm like bcrypt or Argon2
+    // Never store plaintext passwords
+    struct crypt_data data;
+    char *encrypted = crypt_r(input, hash, &#x26;data);
+    return (encrypted != NULL &#x26;&#x26; strcmp(encrypted, hash) == 0);
+}
+</code></pre>
+<h2>Key Takeaways</h2>
+<ul>
+<li>Always examine binaries with <code>strings</code>, <code>file</code>, and <code>readelf</code></li>
+<li>Use GDB and radare2 for deeper analysis</li>
+<li>Never store credentials in plaintext</li>
+<li>Use proper cryptographic hashing for passwords</li>
+<li>Validate all input thoroughly</li>
+</ul>
+<hr>
+<p><strong>Last Updated</strong>: May 11, 2026<br>
+<strong>Difficulty</strong>: Beginner<br>
+<strong>Time to Read</strong>: 5 minutes</p>
+9:["$","div",null,{"className":"prose dark:prose-invert max-w-none prose-code:bg-card/50 prose-code:text-accent prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-card/50 prose-pre:border prose-pre:border-border prose-pre:p-4 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-a:text-primary prose-a:hover:text-primary/80 prose-a:transition-colors prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-muted-foreground","dangerouslySetInnerHTML":{"__html":"$e"}}]
+a:["$","footer",null,{"className":"mt-16 pt-8 border-t border-border","children":["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L4",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"back to posts"]}],["$","div",null,{"className":"font-mono text-xs text-muted-foreground","children":"EOF"}]]}]}]
+b:["$","footer",null,{"className":"border-t border-border mt-20","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid md:grid-cols-2 gap-8","children":[["$","div",null,{"children":[["$","p",null,{"className":"text-muted-foreground text-sm font-mono mb-2","children":[["$","span",null,{"className":"text-primary","children":"$$"}],"echo \"Built for security research\""]}],["$","p",null,{"className":"text-muted-foreground text-xs","children":"Reverse Engineering • Malware Analysis • Exploit Development"}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$Lf",null,{}]}]]}],["$","div",null,{"className":"mt-8 pt-4 border-t border-border/50 text-center","children":["$","p",null,{"className":"text-xs text-muted-foreground font-mono","children":["© ",2026," // All rights reserved //",["$","span",null,{"className":"text-primary ml-1","children":["0x","CC1C64"]}]]}]}]]}]}]
+c:["$","script","script-0",{"src":"/_next/static/chunks/10o61nt~26_4f.js","async":true}]
+d:["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]
+12:null
