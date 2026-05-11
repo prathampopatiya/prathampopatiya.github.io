@@ -156,15 +156,7 @@ pre code {
 }
 
 .prose blockquote {
-  @apply border-l-4 border-primary/80 bg-muted/20 rounded-xl p-4 text-foreground my-6;
-}
-
-.prose blockquote p {
-  @apply m-0 leading-relaxed;
-}
-
-.prose blockquote strong {
-  @apply font-semibold text-foreground;
+  @apply border-l-4 border-primary pl-4 italic text-muted-foreground my-4;
 }
 
 .prose img {
