@@ -5,7 +5,7 @@
 a:I[7193,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/10o61nt~26_4f.js"],"HexDecoration"]
 b:I[81597,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js"],"OutletBoundary"]
 c:"$Sreact.suspense"
-5:Tfa5,<h1>Headings</h1>
+5:T1121,<h1>Headings</h1>
 <h1>Heading 1</h1>
 <h2>Heading 2</h2>
 <h3>Heading 3</h3>
@@ -14,26 +14,84 @@ c:"$Sreact.suspense"
 <h1>Text Formatting</h1>
 <p>This is <strong>bold text</strong> and this is <em>italic text</em>.</p>
 <p>This is <em><strong>bold and italic</strong></em> together.</p>
-<p>This is ~~strikethrough~~ text.</p>
+<p>This is <del>strikethrough</del> text.</p>
 <p>This is <code>inline code</code> within a sentence.</p>
 <hr>
 <h1>Tables</h1>
 <p>Tables must have each row on a <strong>separate line</strong>:</p>
-<p>| Specification | User Mode | Kernel Mode |
-|---------------|-----------|-------------|
-| Unhandled exceptions | Crashes the process | Crashes the system |
-| Terminations | Private memory freed automatically | Must free everything manually |
-| IRQL | PASSIVE_LEVEL (0) | DISPATCH_LEVEL (2) or higher |
-| Bad Coding | Localized to process | Affects entire system |</p>
+<table>
+<thead>
+<tr>
+<th>Specification</th>
+<th>User Mode</th>
+<th>Kernel Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unhandled exceptions</td>
+<td>Crashes the process</td>
+<td>Crashes the system</td>
+</tr>
+<tr>
+<td>Terminations</td>
+<td>Private memory freed automatically</td>
+<td>Must free everything manually</td>
+</tr>
+<tr>
+<td>IRQL</td>
+<td>PASSIVE_LEVEL (0)</td>
+<td>DISPATCH_LEVEL (2) or higher</td>
+</tr>
+<tr>
+<td>Bad Coding</td>
+<td>Localized to process</td>
+<td>Affects entire system</td>
+</tr>
+</tbody>
+</table>
 <p>Another table example:</p>
-<p>| Prefix | Meaning | Example |
-|--------|---------|---------|
-| Ex | General executive functions | ExAllocatePoolWithTag |
-| Ke | General kernel functions | KeAcquireSpinLock |
-| Mm | Memory manager | MmProbeAndLockPages |
-| Rtl | General runtime library | RtlInitUnicodeString |
-| Io | I/O manager | IoCompleteRequest |
-| Zw | Native API wrappers | ZwCreateFile |</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ex</td>
+<td>General executive functions</td>
+<td>ExAllocatePoolWithTag</td>
+</tr>
+<tr>
+<td>Ke</td>
+<td>General kernel functions</td>
+<td>KeAcquireSpinLock</td>
+</tr>
+<tr>
+<td>Mm</td>
+<td>Memory manager</td>
+<td>MmProbeAndLockPages</td>
+</tr>
+<tr>
+<td>Rtl</td>
+<td>General runtime library</td>
+<td>RtlInitUnicodeString</td>
+</tr>
+<tr>
+<td>Io</td>
+<td>I/O manager</td>
+<td>IoCompleteRequest</td>
+</tr>
+<tr>
+<td>Zw</td>
+<td>Native API wrappers</td>
+<td>ZwCreateFile</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h1>Code Blocks</h1>
 <h2>C Code</h2>
@@ -134,9 +192,9 @@ def analyze_pe(file_path):
 <hr>
 <h1>Inline Elements Mixed</h1>
 <p>Here is some <code>ExAllocatePoolWithTag</code> code that allocates memory from the <strong>non-paged pool</strong>. See the <a href="https://docs.microsoft.com">Microsoft Docs</a> for more details.</p>
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen flex flex-col relative","children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","main",null,{"className":"flex-1 relative z-10 container mx-auto px-4 py-16","children":["$","article",null,{"className":"max-w-3xl mx-auto","children":[["$","$L4",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"cd ../posts"]}],["$","header",null,{"className":"mb-12","children":[["$","div",null,{"className":"flex items-center gap-4 text-sm text-muted-foreground mb-4 font-mono","children":[["$","span",null,{"className":"flex items-center gap-1","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar h-4 w-4","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"May 10, 2026"]}],["$","span",null,{"children":["by ","rayqu4z4"]}]]}],["$","h1",null,{"className":"text-3xl md:text-4xl lg:text-5xl font-bold mb-4 glitch text-balance","children":"Markdown Syntax Guide"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","guide",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"guide"]}],["$","span","markdown",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"markdown"]}],["$","span","reference",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"reference"]}]]}]]}],["$","div",null,{"className":"prose max-w-none","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}]}],"$L7"]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"WSzrp8RvOwNFFkqietBzu"}
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen flex flex-col relative","children":[["$","$L2",null,{}],["$","$L3",null,{}],["$","main",null,{"className":"flex-1 relative z-10 container mx-auto px-4 py-16","children":["$","article",null,{"className":"max-w-3xl mx-auto","children":[["$","$L4",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"cd ../posts"]}],["$","header",null,{"className":"mb-12","children":[["$","div",null,{"className":"flex items-center gap-4 text-sm text-muted-foreground mb-4 font-mono","children":[["$","span",null,{"className":"flex items-center gap-1","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar h-4 w-4","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"May 10, 2026"]}],["$","span",null,{"children":["by ","rayqu4z4"]}]]}],["$","h1",null,{"className":"text-3xl md:text-4xl lg:text-5xl font-bold mb-4 glitch text-balance","children":"Markdown Syntax Guide"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","guide",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"guide"]}],["$","span","markdown",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"markdown"]}],["$","span","reference",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"reference"]}]]}]]}],["$","div",null,{"className":"prose max-w-none","dangerouslySetInnerHTML":{"__html":"$5"}}],"$L6"]}]}],"$L7"]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"-O3hAt11iMiF5SIMuNCab"}
 6:["$","footer",null,{"className":"mt-16 pt-8 border-t border-border","children":["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L4",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"back to posts"]}],["$","div",null,{"className":"font-mono text-xs text-muted-foreground","children":"EOF"}]]}]}]
-7:["$","footer",null,{"className":"border-t border-border mt-20","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid md:grid-cols-2 gap-8","children":[["$","div",null,{"children":[["$","p",null,{"className":"text-muted-foreground text-sm font-mono mb-2","children":[["$","span",null,{"className":"text-primary","children":"$$"}],"echo \"Built for security research\""]}],["$","p",null,{"className":"text-muted-foreground text-xs","children":"Reverse Engineering • Malware Analysis • Exploit Development"}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$La",null,{}]}]]}],["$","div",null,{"className":"mt-8 pt-4 border-t border-border/50 text-center","children":["$","p",null,{"className":"text-xs text-muted-foreground font-mono","children":["© ",2026," // All rights reserved //",["$","span",null,{"className":"text-primary ml-1","children":["0x","F84852"]}]]}]}]]}]}]
+7:["$","footer",null,{"className":"border-t border-border mt-20","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid md:grid-cols-2 gap-8","children":[["$","div",null,{"children":[["$","p",null,{"className":"text-muted-foreground text-sm font-mono mb-2","children":[["$","span",null,{"className":"text-primary","children":"$$"}],"echo \"Built for security research\""]}],["$","p",null,{"className":"text-muted-foreground text-xs","children":"Reverse Engineering • Malware Analysis • Exploit Development"}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$La",null,{}]}]]}],["$","div",null,{"className":"mt-8 pt-4 border-t border-border/50 text-center","children":["$","p",null,{"className":"text-xs text-muted-foreground font-mono","children":["© ",2026," // All rights reserved //",["$","span",null,{"className":"text-primary ml-1","children":["0x","EF59D8"]}]]}]}]]}]}]
 8:["$","script","script-0",{"src":"/_next/static/chunks/10o61nt~26_4f.js","async":true}]
 9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
 d:null
