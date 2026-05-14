@@ -2,14 +2,12 @@ import { getSortedPostsData } from '@/lib/posts'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { PostCard } from '@/components/post-card'
-import { MatrixRain } from '@/components/matrix-rain'
 
 export default function PostsPage() {
   const posts = getSortedPostsData()
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      <MatrixRain />
       <Header />
       
       <main className="flex-1 relative z-10 container mx-auto px-4 py-16">

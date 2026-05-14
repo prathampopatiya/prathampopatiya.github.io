@@ -1,7 +1,6 @@
 import { getPostData, getAllPostSlugs } from '@/lib/posts'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { MatrixRain } from '@/components/matrix-rain'
 import { Calendar, Tag, ArrowLeft, Clock, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -54,7 +53,6 @@ export default async function PostPage({ params }: PostPageProps) {
 
     return (
       <div className="min-h-screen flex flex-col relative">
-        <MatrixRain />
         <Header />
         
         <main className="flex-1 relative z-10 container mx-auto px-4 py-16">
