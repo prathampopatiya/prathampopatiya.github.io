@@ -2,26 +2,10 @@
 
 import Link from 'next/link'
 import { Terminal, Github, Twitter, Rss, Menu, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 export function Header() {
-  const [typedText, setTypedText] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const fullText = '~/security-research'
-
-  useEffect(() => {
-    let index = 0
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index))
-        index++
-      } else {
-        clearInterval(timer)
-      }
-    }, 80)
-
-    return () => clearInterval(timer)
-  }, [])
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
@@ -30,10 +14,9 @@ export function Header() {
           <div className="p-2 bg-primary/10 rounded-lg border border-primary/20 group-hover:border-primary/50 transition-colors">
             <Terminal className="h-5 w-5 text-primary" />
           </div>
-          <div className="font-mono">
-            <span className="text-muted-foreground">$</span>
-            <span className="text-primary ml-1">{typedText}</span>
-            <span className="cursor-blink text-primary">_</span>
+          <div className="font-medium">
+            <span className="text-foreground font-bold tracking-tight">rayqu4z4</span>
+            <span className="text-muted-foreground ml-1 font-mono text-sm">/ research</span>
           </div>
         </Link>
 
@@ -41,21 +24,21 @@ export function Header() {
         <div className="hidden md:flex items-center gap-6">
           <Link 
             href="/" 
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            [home]
+            Home
           </Link>
           <Link 
             href="/posts" 
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            [posts]
+            Posts
           </Link>
           <Link 
             href="/about" 
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
           >
-            [about]
+            About
           </Link>
           
           <div className="flex items-center gap-3 ml-4 border-l border-border pl-4">
@@ -104,24 +87,24 @@ export function Header() {
         <div className="md:hidden border-t border-border bg-background px-4 py-4 space-y-4">
           <Link 
             href="/" 
-            className="block text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            [home]
+            Home
           </Link>
           <Link 
             href="/posts" 
-            className="block text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            [posts]
+            Posts
           </Link>
           <Link 
             href="/about" 
-            className="block text-sm text-muted-foreground hover:text-foreground transition-colors font-mono"
+            className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            [about]
+            About
           </Link>
           <div className="flex items-center gap-4 pt-4 border-t border-border">
             <a 

@@ -28,10 +28,7 @@ export function PostCard({ post }: PostCardProps) {
   })
 
   return (
-    <article className="group relative border border-border rounded-lg p-6 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300">
-      {/* Decorative corner */}
-      <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-primary/20 rounded-tr-lg" />
-      <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-primary/20 rounded-bl-lg" />
+    <article className="group relative border border-border rounded-lg p-6 bg-card hover:bg-muted/50 hover:border-primary/30 transition-all duration-300 shadow-sm">
       
       <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-3 font-mono">
         <span className="flex items-center gap-1">
@@ -58,7 +55,7 @@ export function PostCard({ post }: PostCardProps) {
       </div>
       
       <Link href={`/posts/${post.slug}`} className="block">
-        <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-2 glitch">
+        <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-2 tracking-tight">
           {post.title}
         </h2>
       </Link>
@@ -82,9 +79,9 @@ export function PostCard({ post }: PostCardProps) {
       
       <Link 
         href={`/posts/${post.slug}`}
-        className="inline-flex items-center gap-1 text-sm text-primary hover:underline font-mono"
+        className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
       >
-        {'>'} read_more
+        Read more
         <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
       </Link>
     </article>
