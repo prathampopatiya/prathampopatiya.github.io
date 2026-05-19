@@ -38,7 +38,7 @@ const riskColors: { [key: string]: string } = {
 
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params
-  
+
   try {
     const post = await getPostData(slug)
     const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
@@ -54,12 +54,12 @@ export default async function PostPage({ params }: PostPageProps) {
     return (
       <div className="min-h-screen flex flex-col relative">
         <Header />
-        
+
         <main className="flex-1 relative z-10 container mx-auto px-4 py-16">
           <article className="max-w-3xl mx-auto">
             {/* Back Link */}
-            <Link 
-              href="/posts" 
+            <Link
+              href="/posts"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono mb-8"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -81,11 +81,11 @@ export default async function PostPage({ params }: PostPageProps) {
                   <span>by {post.author}</span>
                 )}
               </div>
-              
+
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 glitch text-balance">
                 {post.title}
               </h1>
-              
+
               {/* Category and Risk Badges */}
               <div className="flex flex-wrap gap-3 mb-6">
                 {(post as any).category && (
@@ -101,11 +101,11 @@ export default async function PostPage({ params }: PostPageProps) {
                   </span>
                 )}
               </div>
-              
+
               {post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <span 
+                    <span
                       key={tag}
                       className="inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30"
                     >
@@ -118,7 +118,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </header>
 
             {/* Post Content */}
-            <div 
+            <div
               className="prose dark:prose-invert max-w-none prose-code:bg-card/50 prose-code:text-accent prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-card/50 prose-pre:border prose-pre:border-border prose-pre:p-4 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-a:text-primary prose-a:hover:text-primary/80 prose-a:transition-colors prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-muted-foreground"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
@@ -126,8 +126,8 @@ export default async function PostPage({ params }: PostPageProps) {
             {/* Post Footer */}
             <footer className="mt-16 pt-8 border-t border-border">
               <div className="flex items-center justify-between">
-                <Link 
-                  href="/posts" 
+                <Link
+                  href="/posts"
                   className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono"
                 >
                   <ArrowLeft className="h-4 w-4" />
