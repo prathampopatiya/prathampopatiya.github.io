@@ -4,6 +4,7 @@ import { Footer } from '@/components/footer'
 import { Calendar, Tag, ArrowLeft, Clock, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { formatDate } from '@/lib/utils'
 
 export async function generateStaticParams() {
   const posts = getAllPostSlugs()
@@ -41,7 +42,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   try {
     const post = await getPostData(slug)
-    const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+    const formattedDate = formatDate(post.date, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',

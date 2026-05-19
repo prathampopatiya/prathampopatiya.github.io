@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Calendar, Tag, ChevronRight, AlertCircle, Clock } from 'lucide-react'
 import type { PostMeta } from '@/lib/posts'
+import { formatDate } from '@/lib/utils'
 
 interface PostCardProps {
   post: PostMeta
@@ -21,11 +22,7 @@ const riskColors: { [key: string]: string } = {
 }
 
 export function PostCard({ post }: PostCardProps) {
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
+  const formattedDate = formatDate(post.date)
 
   return (
     <article className="group relative border border-border rounded-lg p-6 bg-card hover:bg-muted/50 hover:border-primary/30 transition-all duration-300 shadow-sm">
