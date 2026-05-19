@@ -48,8 +48,8 @@ Kernel drivers use exported functions from kernel components. These functions wi
 | Hal    | Hardware abstraction layer         | HalExamineMBR              |
 | Cm     | Config manager                     | CmRegisterCallbackEx       |
 
->[!Note]
->If you take a look at the exported functions list from NtOsKrnl.exe, you’ll find many functions that are not documented in the Windows Driver Kit
+> [!NOTE]
+> If you take a look at the exported functions list from NtOsKrnl.exe, you’ll find many functions that are not documented in the Windows Driver Kit
 
 
 ## Dynamic memory allocation
@@ -60,8 +60,8 @@ The kernel provides two general memory pools for drivers to use (the kernel itse
 - Paged pool - memory pool that can be paged out if required. 
 -  Non-Paged Pool - memory pool that is never paged out and is guaranteed to remain in RAM.
 
->[!Note]
->Clearly, the non-paged pool is a “better” memory pool as it can never incur a page fault.
+> [!NOTE]
+> Clearly, the non-paged pool is a “better” memory pool as it can never incur a page fault.
 
 Drivers should use this pool sparingly, only when necessary. In all other cases, drivers should use the paged pool. The `POOL_TYPE` enumeration represents the pool types. This enumeration includes many “types” of pools, but only three should be used by drivers: `PagedPool, NonPagedPool, NonPagedPoolNx (non-page pool without execute permissions)`.
 
@@ -74,9 +74,9 @@ Drivers should use this pool sparingly, only when necessary. In all other cases,
 | `ExAllocatePoolWithQuotaTag` | Allocate memory from one of the pools with the specified tag and charge the current process quota for the allocation                                   |
 | `ExFreePool`                 | Free an allocation. The function knows from which pool the allocation was made                                                                         |
 
->[!Tip]
->ExAllocatePool calls ExAllocatePoolWithTag using the tag enoN (the word “none” in reverse). Older Windows versions used ‘ mdW (WDM in reverse). 
->You should avoid this function and use ExAllocatePoolWithTag‘ instead. ExAllocatePoolZero is implemented inline in wdm.h by calling ExAllocatePoolWithTag and adding the POOL_ZERO_ALLOCATION (=1024) flag to the pool type.
+> [!TIP]
+> ExAllocatePool calls ExAllocatePoolWithTag using the tag enoN (the word “none” in reverse). Older Windows versions used ‘ mdW (WDM in reverse). 
+> You should avoid this function and use ExAllocatePoolWithTag‘ instead. ExAllocatePoolZero is implemented inline in wdm.h by calling ExAllocatePoolWithTag and adding the POOL_ZERO_ALLOCATION (=1024) flag to the pool type.
 
 ### Sample code
 ```c++
@@ -205,3 +205,10 @@ The structure is typically initialized with the` InitializeObjectAttributes macr
 | `IGNORE_IMPERSONATED_DEVICEMAP`(0X800) | Use the process device map instead of the user’s if it’s impersonating (consult the documentation for more information on device maps)                                                                                                           |
 | `DONT_REPARSE`(0X1000)                 | Don’t follow a reparse point, if encountered. Instead an error is returned (`STATUS_REPARSE_POINT_ENCOUNTERED`).                                                                                                                                 |
 
+## References & Further Reading
+
+To dive deeper into Windows Kernel Programming, check out these excellent resources:
+
+- **[Windows Kernel Programming (by Pavel Yosifovich)](https://www.amazon.in/Windows-Kernel-Programming-Pavel-Yosifovich/dp/B0BW2X91L2)**
+- **[Ido's Blog (idov31.github.io)](https://idov31.github.io/)**
+- **[Microsoft Learn / MSDN Docs](https://learn.microsoft.com/en-us/windows-hardware/drivers/)**

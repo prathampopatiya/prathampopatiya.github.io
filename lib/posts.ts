@@ -68,7 +68,7 @@ export function getAllPostSlugs() {
   if (!fs.existsSync(postsDirectory)) {
     return []
   }
-  
+
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames
     .filter((fileName) => fileName.endsWith('.md'))
@@ -95,7 +95,7 @@ export async function getPostData(slug: string): Promise<Post> {
       })
       .use(rehypeStringify)
       .process(matterResult.content)
-    
+
     contentHtml = String(processedContent)
   } catch (error) {
     console.error('Failed to parse with rehype-pretty-code:', error)
