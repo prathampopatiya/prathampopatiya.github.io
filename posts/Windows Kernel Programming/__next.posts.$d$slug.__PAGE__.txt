@@ -1,6 +1,424 @@
 1:"$Sreact.fragment"
-3:I[81597,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":["$L2",[["$","script","script-0",{"src":"/_next/static/chunks/0~8m8kh13yanp.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"CQp2SMsbVcgITnF2hpzsF"}
-5:null
-2:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
+2:I[13293,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/0~8m8kh13yanp.js"],"Header"]
+3:I[3840,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/0~8m8kh13yanp.js"],""]
+b:I[7193,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js","/_next/static/chunks/0~8m8kh13yanp.js"],"HexDecoration"]
+c:I[81597,["/_next/static/chunks/0u9qswfjywk_g.js","/_next/static/chunks/0mlq7ukfbpa_-.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen flex flex-col relative","children":[["$","$L2",null,{}],["$","main",null,{"className":"flex-1 relative z-10 container mx-auto px-4 py-16","children":["$","article",null,{"className":"max-w-3xl mx-auto","children":[["$","$L3",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono mb-8","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"cd ../posts"]}],["$","header",null,{"className":"mb-12","children":[["$","div",null,{"className":"flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4 font-mono","children":[["$","span",null,{"className":"flex items-center gap-1","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar h-4 w-4","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"January 22, 2026"]}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-clock h-4 w-4","aria-hidden":"true","children":[["$","path","mmk7yg",{"d":"M12 6v6l4 2"}],["$","circle","1mglay",{"cx":"12","cy":"12","r":"10"}],"$undefined"]}],11," min read"]}],"$undefined"]}],["$","h1",null,{"className":"text-3xl md:text-4xl lg:text-5xl font-bold mb-4 glitch text-balance","children":"Windows kernel Programming"}],["$","div",null,{"className":"flex flex-wrap gap-3 mb-6","children":["$undefined","$undefined"]}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","WindowsInternals",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"WindowsInternals"]}],["$","span","kernel",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}],"$undefined"]}],"kernel"]}],["$","span","Programming",{"className":"inline-flex items-center gap-1 px-3 py-1 bg-accent/10 text-accent rounded-full text-xs font-mono border border-accent/30","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-tag h-3 w-3","aria-hidden":"true","children":[["$","path","vktsd0",{"d":"M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}],"$L4","$undefined"]}],"Programming"]}]]}]]}],"$L5","$L6"]}]}],"$L7"]}],["$L8"],"$L9"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"0O97bRZbGbV1vDguWduXd"}
+4:["$","circle","kqv944",{"cx":"7.5","cy":"7.5","r":".5","fill":"currentColor"}]
+a:T604c,<h2>Kernel Programming basics</h2>
+<p><strong>Differences between user mode and kernel mode development</strong></p>
+<table>
+<thead>
+<tr>
+<th>specification</th>
+<th>user mode</th>
+<th>kernel mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unhandled exceptions</td>
+<td>crashes the process</td>
+<td>crashes the system</td>
+</tr>
+<tr>
+<td>Terminations</td>
+<td>When a process terminates, all private memory and resources are freed automatically</td>
+<td>If a driver unloads without freeing everything it was using, there is a leak, only resolved in the next boot</td>
+</tr>
+<tr>
+<td>IRQL</td>
+<td>Always PASSIVE_LEVEL (0)</td>
+<td>May be DISPATCH_LEVEL (2) or higher</td>
+</tr>
+<tr>
+<td>Return values</td>
+<td>API errors are sometimes ignored</td>
+<td>Should (almost) never ignore errors</td>
+</tr>
+<tr>
+<td>Bad Coding</td>
+<td>Typically localized to the process</td>
+<td>Typically localized to the process</td>
+</tr>
+<tr>
+<td>Testing and Debugging</td>
+<td>Typical testing and debugging done on the developer’s machine</td>
+<td>Debugging must be done with another machine</td>
+</tr>
+<tr>
+<td>Libraries</td>
+<td>Can use almost and C/C++ library (e.g. STL, boost)</td>
+<td>Most standard libraries cannot be used</td>
+</tr>
+<tr>
+<td>Exception Handling</td>
+<td>Can use C++ exceptions or Structured Exception Handling (SEH)</td>
+<td>Only SEH can be used</td>
+</tr>
+<tr>
+<td>C++ usage</td>
+<td>Full C++ runtime available</td>
+<td>No C++ runtime</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>The Kernel API</h2>
+<p>Kernel drivers use exported functions from kernel components. These functions will be referred to as the Kernel API. Most functions are implemented within the kernel module itself (NtOskrnl.exe), but some may be implemented by other kernel modules, such the HAL (hal.dll).</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ex</td>
+<td>general executive functions</td>
+<td>ExAllocatePoolWithTag</td>
+</tr>
+<tr>
+<td>Ke</td>
+<td>general kernel functions</td>
+<td>KeAcquireSpinLock</td>
+</tr>
+<tr>
+<td>Mm</td>
+<td>memory manager</td>
+<td>MmProbeAndLockPages</td>
+</tr>
+<tr>
+<td>Rtl</td>
+<td>general runtime lib</td>
+<td>RtlInitUnicodeString</td>
+</tr>
+<tr>
+<td>FsRtl</td>
+<td>file system Rtl</td>
+<td>FsRtlGetFileSize</td>
+</tr>
+<tr>
+<td>Flt</td>
+<td>file system mini filter</td>
+<td>FltCreateFile</td>
+</tr>
+<tr>
+<td>Ob</td>
+<td>object manager</td>
+<td>ObReferenceObject</td>
+</tr>
+<tr>
+<td>Io</td>
+<td>I/O manager</td>
+<td>IoCompleteRequest</td>
+</tr>
+<tr>
+<td>Se</td>
+<td>Security</td>
+<td>SeAccessCheck</td>
+</tr>
+<tr>
+<td>Ps</td>
+<td>Process manager</td>
+<td>PsLookupProcessByProcessId</td>
+</tr>
+<tr>
+<td>Po</td>
+<td>Power manager</td>
+<td>PoSetSystemState</td>
+</tr>
+<tr>
+<td>Wmi</td>
+<td>windows management instrumentation</td>
+<td>WmiTraceMessage</td>
+</tr>
+<tr>
+<td>Zw</td>
+<td>native API wrappers</td>
+<td>ZwCreateFile</td>
+</tr>
+<tr>
+<td>Hal</td>
+<td>Hardware abstraction layer</td>
+<td>HalExamineMBR</td>
+</tr>
+<tr>
+<td>Cm</td>
+<td>Config manager</td>
+<td>CmRegisterCallbackEx</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!Note]
+If you take a look at the exported functions list from NtOsKrnl.exe, you’ll find many functions that are not documented in the Windows Driver Kit</p>
+</blockquote>
+<h2>Dynamic memory allocation</h2>
+<p>Drivers often need to allocate memory dynamically. As discussed in chapter 1, kernel thread stack size is rather small, so any large chunk of memory should be allocated dynamically.</p>
+<p>The kernel provides two general memory pools for drivers to use (the kernel itself uses them as well).</p>
+<ul>
+<li>Paged pool - memory pool that can be paged out if required.</li>
+<li>Non-Paged Pool - memory pool that is never paged out and is guaranteed to remain in RAM.</li>
+</ul>
+<blockquote>
+<p>[!Note]
+Clearly, the non-paged pool is a “better” memory pool as it can never incur a page fault.</p>
+</blockquote>
+<p>Drivers should use this pool sparingly, only when necessary. In all other cases, drivers should use the paged pool. The <code>POOL_TYPE</code> enumeration represents the pool types. This enumeration includes many “types” of pools, but only three should be used by drivers: <code>PagedPool, NonPagedPool, NonPagedPoolNx (non-page pool without execute permissions)</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ExAllocatePool</code></td>
+<td>Allocate memory from one of the pools with a default tag. This function is considered obsolete. The next function in this table should be used instead</td>
+</tr>
+<tr>
+<td><code>ExAllocatePoolWithTag</code></td>
+<td>Allocate memory from one of the pools with the specified tag</td>
+</tr>
+<tr>
+<td><code>ExAllocatePoolZero</code></td>
+<td>Same as ExAllocatePoolWithTag, but zeroes out the memory block</td>
+</tr>
+<tr>
+<td><code>ExAllocatePoolWithQuotaTag</code></td>
+<td>Allocate memory from one of the pools with the specified tag and charge the current process quota for the allocation</td>
+</tr>
+<tr>
+<td><code>ExFreePool</code></td>
+<td>Free an allocation. The function knows from which pool the allocation was made</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!Tip]
+ExAllocatePool calls ExAllocatePoolWithTag using the tag enoN (the word “none” in reverse). Older Windows versions used ‘ mdW (WDM in reverse).
+You should avoid this function and use ExAllocatePoolWithTag‘ instead. ExAllocatePoolZero is implemented inline in wdm.h by calling ExAllocatePoolWithTag and adding the POOL_ZERO_ALLOCATION (=1024) flag to the pool type.</p>
+</blockquote>
+<h3>Sample code</h3>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#282c34;color:#abb2bf" tabindex="0" data-language="c++" data-theme="one-dark-pro"><code data-language="c++" data-theme="one-dark-pro" style="display: grid;"><span data-line=""><span style="color:#C678DD">#include</span><span style="color:#98C379"> &#x3C;ntddk.h></span></span>
+<span data-line=""><span style="color:#C678DD">#include</span><span style="color:#98C379"> &#x3C;ntstatus.h></span></span>
+<span data-line=""><span style="color:#C678DD">#include</span><span style="color:#98C379"> &#x3C;wdm.h></span></span>
+<span data-line=""><span style="color:#C678DD">#define</span><span style="color:#61AFEF"> DRIVER_TAG</span><span style="color:#98C379"> 'dcba'</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C678DD">void</span><span style="color:#61AFEF"> SampleUnload</span><span style="color:#ABB2BF">(</span><span style="color:#E5C07B">_In_</span><span style="color:#E5C07B"> PDRIVER_OBJECT</span><span style="color:#E06C75;font-style:italic"> DriverObject</span><span style="color:#ABB2BF">) {</span></span>
+<span data-line=""><span style="color:#61AFEF">	UNREFERENCED_PARAMETER</span><span style="color:#ABB2BF">(DriverObject);</span></span>
+<span data-line=""><span style="color:#61AFEF">	DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"Sample Driver Unload called</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">));</span></span>
+<span data-line=""><span style="color:#ABB2BF">}</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#ABB2BF">UNICODE_STRING g_RegistryPath;</span></span>
+<span data-line=""><span style="color:#C678DD">extern</span><span style="color:#98C379"> "C"</span><span style="color:#ABB2BF"> NTSTATUS</span></span>
+<span data-line=""><span style="color:#61AFEF">DriverEntry</span><span style="color:#ABB2BF">(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath) {</span></span>
+<span data-line=""><span style="color:#61AFEF">	UNREFERENCED_PARAMETER</span><span style="color:#ABB2BF">(RegistryPath);</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#E5C07B">	DriverObject</span><span style="color:#ABB2BF">-></span><span style="color:#E06C75">DriverUnload</span><span style="color:#C678DD"> =</span><span style="color:#ABB2BF"> SampleUnload;</span></span>
+<span data-line=""><span style="color:#61AFEF">	DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"Sample driver initialized successfully</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">));</span></span>
+<span data-line=""><span style="color:#E5C07B">	g_RegistryPath</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">Buffer</span><span style="color:#C678DD"> =</span><span style="color:#ABB2BF"> (WCHAR</span><span style="color:#C678DD">*</span><span style="color:#ABB2BF">)</span><span style="color:#61AFEF">ExAllocatePool2</span><span style="color:#ABB2BF">(PagedPool, </span><span style="color:#E5C07B">RegistryPath</span><span style="color:#ABB2BF">-></span><span style="color:#E06C75">Length</span><span style="color:#ABB2BF">, DRIVER_TAG);</span></span>
+<span data-line=""><span style="color:#C678DD">	if</span><span style="color:#ABB2BF"> (</span><span style="color:#E5C07B">g_RegistryPath</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">Buffer</span><span style="color:#C678DD"> ==</span><span style="color:#D19A66"> nullptr</span><span style="color:#ABB2BF">) {</span></span>
+<span data-line=""><span style="color:#61AFEF">		DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"Failed to allocate memory</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">));</span></span>
+<span data-line=""><span style="color:#C678DD">		return</span><span style="color:#ABB2BF"> STATUS_INSUFFICIENT_RESOURCES;</span></span>
+<span data-line=""><span style="color:#ABB2BF">	}</span></span>
+<span data-line=""><span style="color:#E5C07B">	g_RegistryPath</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">MaximumLength</span><span style="color:#C678DD"> =</span><span style="color:#E5C07B"> RegistryPath</span><span style="color:#ABB2BF">-></span><span style="color:#E06C75">Length</span><span style="color:#ABB2BF">;</span></span>
+<span data-line=""><span style="color:#61AFEF">	RtlCopyUnicodeString</span><span style="color:#ABB2BF">(</span><span style="color:#56B6C2">&#x26;</span><span style="color:#ABB2BF">g_RegistryPath, (PUNICODE_STRING)RegistryPath);</span></span>
+<span data-line=""><span style="color:#61AFEF">	DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"Original registry path: %wZ</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">),RegistryPath);</span></span>
+<span data-line=""><span style="color:#61AFEF">	DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"Copied registry path: %wZ</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">), </span><span style="color:#56B6C2">&#x26;</span><span style="color:#ABB2BF">g_RegistryPath);</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#ABB2BF">	</span></span>
+<span data-line=""><span style="color:#ABB2BF">	OSVERSIONINFOW osv </span><span style="color:#C678DD">=</span><span style="color:#ABB2BF"> {</span><span style="color:#D19A66">0</span><span style="color:#ABB2BF">};</span></span>
+<span data-line=""><span style="color:#E5C07B">	osv</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">dwOSVersionInfoSize</span><span style="color:#C678DD"> =</span><span style="color:#C678DD"> sizeof</span><span style="color:#ABB2BF">(OSVERSIONINFOW);</span></span>
+<span data-line=""><span style="color:#C678DD">	if</span><span style="color:#ABB2BF"> (</span><span style="color:#61AFEF">NT_SUCCESS</span><span style="color:#ABB2BF">(</span><span style="color:#61AFEF">RtlGetVersion</span><span style="color:#ABB2BF">(_Out_ </span><span style="color:#56B6C2">&#x26;</span><span style="color:#ABB2BF">osv))) {</span></span>
+<span data-line=""><span style="color:#61AFEF">		DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"OS Major Version:</span><span style="color:#D19A66">%lu</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">), </span><span style="color:#E5C07B">osv</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">dwMajorVersion</span><span style="color:#ABB2BF">);</span></span>
+<span data-line=""><span style="color:#61AFEF">		DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"OS Minor Version:</span><span style="color:#D19A66">%lu</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">), </span><span style="color:#E5C07B">osv</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">dwMinorVersion</span><span style="color:#ABB2BF">);</span></span>
+<span data-line=""><span style="color:#61AFEF">		DbgPrint</span><span style="color:#ABB2BF">((</span><span style="color:#98C379">"OS build Number:</span><span style="color:#D19A66">%lu</span><span style="color:#56B6C2">\n</span><span style="color:#98C379">"</span><span style="color:#ABB2BF">), </span><span style="color:#E5C07B">osv</span><span style="color:#ABB2BF">.</span><span style="color:#E06C75">dwBuildNumber</span><span style="color:#ABB2BF">);</span></span>
+<span data-line=""><span style="color:#ABB2BF">	}</span></span>
+<span data-line=""> </span>
+<span data-line=""><span style="color:#C678DD">	return</span><span style="color:#ABB2BF"> STATUS_SUCCESS;</span></span>
+<span data-line=""><span style="color:#ABB2BF">}</span></span></code></pre></figure>
+<h2>Linked Lists</h2>
+<p>The kernel uses circular doubly linked lists in many of its internal data structures. For example, all processes on the system are managed by <code>EPROCESS</code> structures, connected in a <code>circular doubly linked list</code>, where its head is stored the kernel variable <code>PsActiveProcessHead</code>.</p>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#282c34;color:#abb2bf" tabindex="0" data-language="c++" data-theme="one-dark-pro"><code data-language="c++" data-theme="one-dark-pro" style="display: grid;"><span data-line=""><span style="color:#C678DD">typedef</span><span style="color:#C678DD"> struct</span><span style="color:#E5C07B"> _LIST_ENTRY</span><span style="color:#ABB2BF">{</span></span>
+<span data-line=""><span style="color:#C678DD">	struct</span><span style="color:#E5C07B"> _LIST_ENTRY</span><span style="color:#C678DD"> *</span><span style="color:#E5C07B">Flink</span><span style="color:#ABB2BF">;</span></span>
+<span data-line=""><span style="color:#C678DD">	struct</span><span style="color:#E5C07B"> _LIST_ENTRY</span><span style="color:#C678DD"> *</span><span style="color:#E5C07B">Blink</span><span style="color:#ABB2BF">;</span></span>
+<span data-line=""><span style="color:#ABB2BF">} </span><span style="color:#E5C07B">LIST_ENTRY</span><span style="color:#ABB2BF">, </span><span style="color:#C678DD">*</span><span style="color:#E5C07B">PLIST_ENTRY</span><span style="color:#ABB2BF">;</span></span></code></pre></figure>
+<p>One such structure is embedded inside the real structure of interest. For example, in the <code>EPROCESS</code> structure, the member <code>ActiveProcessLinks</code> is of type <code>LIST_ENTRY</code>, pointing to the next and previous <code>LIST_ENTRY</code> objects of other <code>EPROCESS</code> structures.
+The head of a list is stored separately; in the case of the process, that’s <code>PsActiveProcessHead</code>. To get the pointer to the actual structure of interest given the address of a <code>LIST_ENTRY</code> can be obtained with the <code>CONTAINING_RECORD</code> macro.</p>
+<p>When working with these linked lists, we have a head for the list, stored in a variable. This means that natural traversal is done by using the <code>Flink</code> member of the list to point to the next <code>LIST_ENTRY</code> in the list. Given a pointer to the <code>LIST_ENTRY</code>, what we’re really after is the <code>MyDataItem</code> that contains this list entry member. This is where the <code>CONTAINING_RECORD</code> comes in:</p>
+<h4>The common functions that are used while working with the above linked lists are listed below:-</h4>
+<table>
+<thead>
+<tr>
+<th>$\color{Aquamarine}Function$</th>
+<th>$\color{CadetBlue}Description$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InitializeListHead</code></td>
+<td>Initializes a list head to make an empty list. The forward and back pointers point to the forward pointer</td>
+</tr>
+<tr>
+<td><code>InsertHeadList</code></td>
+<td>Insert an item to the head of the list.</td>
+</tr>
+<tr>
+<td><code>InsertTailList</code></td>
+<td>Insert an item to the tail of the list.</td>
+</tr>
+<tr>
+<td><code>IsListEmpty</code></td>
+<td>Check if the list is empty.</td>
+</tr>
+<tr>
+<td><code>RemoveHeadList</code></td>
+<td>Remove the head of the list.</td>
+</tr>
+<tr>
+<td><code>RemoveTailList</code></td>
+<td>Remove the tail of the list.</td>
+</tr>
+<tr>
+<td><code>RemoveEntryList</code></td>
+<td>Remove the specific item from the list.</td>
+</tr>
+<tr>
+<td><code>ExInterlockedInsertHeadList</code></td>
+<td>Insert an item at the head of the list atomically by using the specified spinlock.</td>
+</tr>
+<tr>
+<td><code>ExInterlockedInsertTailList</code></td>
+<td>Insert an item at the tail of the list atomically by using the specified spinlock.</td>
+</tr>
+<tr>
+<td><code>ExInterlockedRemoveHeadList</code></td>
+<td>Remove an item from the head of the list atomically by using the specified spinlock.</td>
+</tr>
+</tbody>
+</table>
+<h3>The Driver Object</h3>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#282c34;color:#abb2bf" tabindex="0" data-language="c++" data-theme="one-dark-pro"><code data-language="c++" data-theme="one-dark-pro" style="display: grid;"><span data-line=""><span style="color:#E5C07B">NTSTATUS</span><span style="color:#61AFEF"> DriverEntry</span><span style="color:#ABB2BF">(</span><span style="color:#E5C07B">PDRIVER_OBJECT</span><span style="color:#E06C75;font-style:italic"> DriverObject</span><span style="color:#ABB2BF">,</span><span style="color:#E5C07B">PUNICODE_STRING</span><span style="color:#E06C75;font-style:italic"> Registrypath</span><span style="color:#ABB2BF">)</span></span></code></pre></figure>
+<p>From the declaration it's quite obvious it accepts two arguments, the first is driver object, and another a <code>UNICODE_STRING</code>. The role of the driver at this point is to further initialize the structure to indicate what operations are supported by the driver.</p>
+<p>The other important set of operations to initialize are called Dispatch Routines. This is an array of function pointers, stored in the in the MajorFunction member of <code>DRIVER_OBJECT</code>. This set specifies which operations the driver supports, such as Create, Read, Write, and so on.</p>
+<table>
+<thead>
+<tr>
+<th>$\color{Brown}Major Functions$</th>
+<th>$\color{Green}Description$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IRP_MJ_CREATE</code></td>
+<td>Create operation. Typically invoked for <code>CreateFile</code> or <code>ZwCreateFile</code> calls.</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_CLOSE</code></td>
+<td>Close operation. Normally invoked for <code>CloseHandle or ZwClose</code></td>
+</tr>
+<tr>
+<td><code>IRP_MJ_READ</code></td>
+<td>Read operation. Typically invoked for <code>ReadFile, ZwReadFile</code> and similar read APIs.</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_DEVICE_CONTROL</code></td>
+<td>Write operation. Typically invoked for <code>WriteFile, ZwWriteFile</code>, and similar write APIs</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_INTERNAL_DEVICE CONTROL</code></td>
+<td>Generic call to a driver, invoked because of <code>DeviceIoControl</code> or <code>ZwDeviceIoControlFile</code> calls</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_SHUTDOWN</code></td>
+<td>Similar to the previous one, but only available for kernel-mode callers.</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_CLEANUP</code></td>
+<td>Called when the system shuts down if the driver has registered for shutdown notification with <code>IoRegisterShutdownNotification</code>.</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_PNP</code></td>
+<td>Invoked when the last handle to a file object is closed, but the file object’s reference count is not zero</td>
+</tr>
+<tr>
+<td><code>IRP_MJ_POWER</code></td>
+<td>Power callback invoked by the Power Manager. Generally interesting for hardware-based drivers or filters to such drivers.</td>
+</tr>
+</tbody>
+</table>
+<h3>Object Attributes</h3>
+<p>One of the common structures that shows up in many kernel APIs is OBJECT_ATTRIBUTES, defined like so:</p>
+<figure data-rehype-pretty-code-figure=""><pre style="background-color:#282c34;color:#abb2bf" tabindex="0" data-language="c++" data-theme="one-dark-pro"><code data-language="c++" data-theme="one-dark-pro" style="display: grid;"><span data-line=""><span style="color:#C678DD">typedef</span><span style="color:#C678DD"> struct</span><span style="color:#E5C07B"> _OBJECT_ATTRIBUTES</span><span style="color:#ABB2BF">{</span></span>
+<span data-line=""><span style="color:#ABB2BF">	ULONG Length;</span></span>
+<span data-line=""><span style="color:#ABB2BF">	HANDLE RootDirectory;</span></span>
+<span data-line=""><span style="color:#ABB2BF">	PUNICODE_STRING ObjectName;</span></span>
+<span data-line=""><span style="color:#ABB2BF">	ULONG Attributes;</span></span>
+<span data-line=""><span style="color:#ABB2BF">	PVOID SecurityDescriptors;</span></span>
+<span data-line=""><span style="color:#ABB2BF">	PVOID SecurityQualityOfService;</span></span>
+<span data-line=""><span style="color:#ABB2BF">} </span><span style="color:#E5C07B">OBJECT_ATTRIBUTES</span><span style="color:#ABB2BF">;</span></span>
+<span data-line=""><span style="color:#C678DD">typedef</span><span style="color:#ABB2BF"> OBJECT_ATTRIBUTES,</span><span style="color:#C678DD">*</span><span style="color:#ABB2BF">POBJECT_ATTRIBUTES;</span></span>
+<span data-line=""><span style="color:#C678DD">typedef</span><span style="color:#C678DD"> const</span><span style="color:#ABB2BF"> OBJECT_ATTRIBUTES,</span><span style="color:#C678DD">*</span><span style="color:#ABB2BF">POBJECT_ATTRIBUTES;</span></span></code></pre></figure>
+<p>The structure is typically initialized with the<code> InitializeObjectAttributes macro</code>, that allows specifying all the structure members except Length (set automatically by the macro), and <code>SecurityQualityOfService</code>, which is not normally needed. Here is the description of the members:</p>
+<h3>Object Attributes flags</h3>
+<table>
+<thead>
+<tr>
+<th>Flag(OBJ_)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INHERIT</code>(2)</td>
+<td>The returned handle should be marked as inheritable</td>
+</tr>
+<tr>
+<td><code>PERMANENT</code>(0X10)</td>
+<td>The object created should be marked as permanent. Permanent objects have an additional reference count that prevents them from dying even if all handles to them are closed</td>
+</tr>
+<tr>
+<td><code>EXCLUSIVE</code>(0X20)</td>
+<td>If creating an object, the object is created with exclusive access. No other handles can be opened to the object. If opening an object, exclusive access is requested, which is granted only if the object was originally created with this flag</td>
+</tr>
+<tr>
+<td><code>CASE_INSENSITIVE</code>(0X40)</td>
+<td>When opening an object, perform a case insensitive search for its name. Without this flag, the name must match exactly</td>
+</tr>
+<tr>
+<td><code>OPENIF</code>(0X80)</td>
+<td>Open the object if it exists. Otherwise, fail the operation (don’t create a new object)</td>
+</tr>
+<tr>
+<td><code>OPENLINK</code>(0X100)</td>
+<td>If the object to open is a symbolic link object, open the symbolic link object itself, rather than following the symbolic link to its target</td>
+</tr>
+<tr>
+<td><code>KERNEL_HANDLE</code>(0X200)</td>
+<td>The returned handle should be a kernel handle. Kernel handles are valid in any process context, and cannot be used by user mode code</td>
+</tr>
+<tr>
+<td><code>FORCE_ACCESS_CHECK</code>(0X400)</td>
+<td>Access checks should be performed even if the object is opened in <code>KernelMode</code> access mode</td>
+</tr>
+<tr>
+<td><code>IGNORE_IMPERSONATED_DEVICEMAP</code>(0X800)</td>
+<td>Use the process device map instead of the user’s if it’s impersonating (consult the documentation for more information on device maps)</td>
+</tr>
+<tr>
+<td><code>DONT_REPARSE</code>(0X1000)</td>
+<td>Don’t follow a reparse point, if encountered. Instead an error is returned (<code>STATUS_REPARSE_POINT_ENCOUNTERED</code>).</td>
+</tr>
+</tbody>
+</table>5:["$","div",null,{"className":"prose dark:prose-invert max-w-none prose-code:bg-card/50 prose-code:text-accent prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-card/50 prose-pre:border prose-pre:border-border prose-pre:p-4 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-a:text-primary prose-a:hover:text-primary/80 prose-a:transition-colors prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-muted-foreground","dangerouslySetInnerHTML":{"__html":"$a"}}]
+6:["$","footer",null,{"className":"mt-16 pt-8 border-t border-border","children":["$","div",null,{"className":"flex items-center justify-between","children":[["$","$L3",null,{"href":"/posts","className":"inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-mono","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":24,"height":24,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left h-4 w-4","aria-hidden":"true","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"back to posts"]}],["$","div",null,{"className":"font-mono text-xs text-muted-foreground","children":"EOF"}]]}]}]
+7:["$","footer",null,{"className":"border-t border-border mt-20","children":["$","div",null,{"className":"container mx-auto px-4 py-8","children":[["$","div",null,{"className":"grid md:grid-cols-2 gap-8","children":[["$","div",null,{"children":[["$","p",null,{"className":"text-muted-foreground text-sm font-mono mb-2","children":[["$","span",null,{"className":"text-primary","children":"$$"}],"echo \"Built for security research\""]}],["$","p",null,{"className":"text-muted-foreground text-xs","children":"Reverse Engineering • Malware Analysis • Exploit Development"}]]}],["$","div",null,{"className":"hidden md:block","children":["$","$Lb",null,{}]}]]}],["$","div",null,{"className":"mt-8 pt-4 border-t border-border/50 text-center","children":["$","p",null,{"className":"text-xs text-muted-foreground font-mono","children":["© ",2026," // All rights reserved //",["$","span",null,{"className":"text-primary ml-1","children":["0x","5F7CEF"]}]]}]}]]}]}]
+8:["$","script","script-0",{"src":"/_next/static/chunks/0~8m8kh13yanp.js","async":true}]
+9:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null
