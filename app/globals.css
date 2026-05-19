@@ -251,3 +251,48 @@ pre code {
 .cursor-blink {
   animation: blink 1s infinite;
 }
+
+/* Custom Markdown Alerts */
+.custom-alert {
+  @apply border-l-4 rounded-r-xl p-4 my-6 bg-muted/10;
+}
+
+.custom-alert-title {
+  @apply font-semibold flex items-center gap-2 mb-2 text-sm uppercase tracking-wider;
+}
+
+.custom-alert-title svg {
+  @apply h-4 w-4;
+}
+
+.custom-alert-content {
+  @apply text-muted-foreground leading-relaxed;
+}
+
+.custom-alert-content p {
+  @apply m-0;
+}
+
+.custom-alert-note {
+  @apply border-blue-500/50 bg-blue-500/5;
+}
+
+.custom-alert-note .custom-alert-title {
+  @apply text-blue-400;
+}
+
+.custom-alert-tip {
+  @apply border-green-500/50 bg-green-500/5;
+}
+
+.custom-alert-tip .custom-alert-title {
+  @apply text-green-400;
+}
+
+.custom-alert-warning {
+  @apply border-yellow-500/50 bg-yellow-500/5;
+}
+
+.custom-alert-warning .custom-alert-title {
+  @apply text-yellow-400;
+}
