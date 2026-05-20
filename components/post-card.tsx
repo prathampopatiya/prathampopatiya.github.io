@@ -25,12 +25,19 @@ export function PostCard({ post }: PostCardProps) {
   const formattedDate = formatDate(post.date)
 
   return (
-    <article className="group relative border border-border rounded-lg p-6 bg-card hover:bg-muted/50 hover:border-primary/30 transition-all duration-300 shadow-sm">
-      
-      <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground mb-3 font-mono">
-        <span className="flex items-center gap-1">
-          <Calendar className="h-3 w-3" />
-          {formattedDate}
+    <article className="group relative border border-border bg-card p-6 transition-all duration-300 hover:bg-muted/30 hover:border-primary">
+      {/* Active Rail (Cyberpunk accent) */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-primary group-hover:shadow-[0_0_12px_var(--color-primary)] transition-colors" />
+
+      {/* Top brackets (purely aesthetic) */}
+      <div className="absolute -top-[1px] -left-[1px] w-3 h-3 border-t border-l border-transparent group-hover:border-primary transition-colors" />
+      <div className="absolute -top-[1px] -right-[1px] w-3 h-3 border-t border-r border-transparent group-hover:border-primary transition-colors" />
+      <div className="absolute -bottom-[1px] -left-[1px] w-3 h-3 border-b border-l border-transparent group-hover:border-primary transition-colors" />
+      <div className="absolute -bottom-[1px] -right-[1px] w-3 h-3 border-b border-r border-transparent group-hover:border-primary transition-colors" />
+
+      <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground mb-4 font-mono tracking-widest uppercase">
+        <span className="flex items-center gap-1 group-hover:text-primary transition-colors">
+          <span className="text-primary mr-1">//</span> {formattedDate}
         </span>
         {post.readingTime && (
           <span className="flex items-center gap-1">
@@ -39,36 +46,39 @@ export function PostCard({ post }: PostCardProps) {
           </span>
         )}
         {(post as any).category && (
-          <span className="flex items-center gap-1 px-2 py-1 bg-primary/10 text-primary rounded text-xs">
-            {categoryEmojis[(post as any).category] || '📌'}
+          <span className="px-2 py-0.5 bg-primary text-black font-bold text-[10px]">
+            {(post as any).category}
           </span>
         )}
         {(post as any).risk && (
-          <span className={`flex items-center gap-1 px-2 py-1 rounded text-xs border ${riskColors[(post as any).risk]}`}>
-            <AlertCircle className="h-3 w-3" />
+          <span className={`px-2 py-0.5 text-black font-bold text-[10px] uppercase ${
+            (post as any).risk === 'critical' ? 'bg-accent' : 
+            (post as any).risk === 'high' ? 'bg-primary' : 
+            'bg-terminal'
+          }`}>
             {(post as any).risk}
           </span>
         )}
       </div>
       
       <Link href={`/posts/${post.slug}`} className="block">
-        <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-2 tracking-tight">
+        <h2 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-3 tracking-wide">
           {post.title}
         </h2>
       </Link>
       
-      <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+      <p className="text-muted-foreground text-sm leading-relaxed mb-6 border-l-2 border-accent pl-3">
         {post.excerpt}
       </p>
       
       {post.tags.length > 0 && (
-        <div className="flex flex-wrap gap-1 mb-4">
+        <div className="flex flex-wrap gap-2 mb-5">
           {post.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-1 bg-accent/10 text-accent rounded border border-accent/20"
+              className="font-mono text-[10px] tracking-widest px-2 py-1 bg-white/5 text-muted-foreground border border-border group-hover:border-border group-hover:text-foreground transition-colors uppercase"
             >
-              {tag}
+              [{tag}]
             </span>
           ))}
         </div>
@@ -76,10 +86,10 @@ export function PostCard({ post }: PostCardProps) {
       
       <Link 
         href={`/posts/${post.slug}`}
-        className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+        className="inline-flex items-center gap-2 font-mono text-xs tracking-widest font-bold text-primary hover:text-accent transition-colors uppercase"
       >
-        Read more
-        <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+        <span className="text-accent">{'>'}</span> Read_More
+        <span className="animate-pulse">_</span>
       </Link>
     </article>
   )
