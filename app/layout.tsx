@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: ' rayqu4z4\'s Security Research Blog',
   description: 'Reverse Engineering, Malware development,Game Security,and Low-Level Security Research',
   keywords: ['security', 'reverse engineering', 'malware analysis', 'exploit development', 'binary analysis'],
+  icons: {
+    icon: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png',
+  },
 }
 
 export default function RootLayout({
