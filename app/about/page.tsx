@@ -1,6 +1,6 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Github, Twitter, Mail, ExternalLink } from 'lucide-react'
+import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react'
 
 export default function AboutPage() {
   return (
@@ -97,13 +97,13 @@ export default function AboutPage() {
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <a
-                  href="https://twitter.com/prathampopatiya"
+                  href="https://linkedin.com/in/prathampopatiya"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 rounded transition-colors"
                 >
-                  <Twitter className="h-4 w-4" />
-                  <span className="font-mono text-sm">Twitter</span>
+                  <Linkedin className="h-4 w-4" />
+                  <span className="font-mono text-sm">LinkedIn</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <a

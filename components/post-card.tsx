@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Calendar, Tag, ChevronRight, AlertCircle, Clock } from 'lucide-react'
+import { Calendar, Tag, ChevronRight, AlertCircle, Clock, Eye } from 'lucide-react'
 import type { PostMeta } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
 
@@ -43,6 +43,12 @@ export function PostCard({ post }: PostCardProps) {
           <span className="flex items-center gap-1">
             <Clock className="h-3 w-3" />
             {post.readingTime} min
+          </span>
+        )}
+        {post.views && (
+          <span className="flex items-center gap-1">
+            <Eye className="h-3 w-3" />
+            {post.views.toLocaleString()}
           </span>
         )}
         {(post as any).category && (

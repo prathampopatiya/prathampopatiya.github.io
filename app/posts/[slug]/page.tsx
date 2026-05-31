@@ -1,7 +1,7 @@
 import { getPostData, getAllPostSlugs } from '@/lib/posts'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Calendar, Tag, ArrowLeft, Clock, AlertCircle } from 'lucide-react'
+import { Calendar, Tag, ArrowLeft, Clock, AlertCircle, Eye } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { formatDate } from '@/lib/utils'
@@ -57,7 +57,8 @@ export default async function PostPage({ params }: PostPageProps) {
         <Header />
 
         <main className="flex-1 relative z-10 container mx-auto px-4 py-16">
-          <article className="max-w-3xl mx-auto">
+          <div className="lg:grid lg:grid-cols-[1fr_250px] gap-12 max-w-5xl mx-auto items-start relative">
+            <article className="min-w-0">
             {/* Back Link */}
             <Link
               href="/posts"
@@ -78,6 +79,12 @@ export default async function PostPage({ params }: PostPageProps) {
                   <Clock className="h-4 w-4" />
                   {readingTime} min read
                 </span>
+                {post.views && (
+                  <span className="flex items-center gap-1">
+                    <Eye className="h-4 w-4" />
+                    {post.views.toLocaleString()} views
+                  </span>
+                )}
                 {post.author && (
                   <span>by {post.author}</span>
                 )}
@@ -139,7 +146,31 @@ export default async function PostPage({ params }: PostPageProps) {
                 </div>
               </div>
             </footer>
-          </article>
+            </article>
+
+            {/* Sidebar TOC */}
+            <aside className="hidden lg:block sticky top-24 w-full">
+              {post.toc && post.toc.length > 0 && (
+                <div className="border border-border bg-card/30 p-5 rounded-none backdrop-blur-sm">
+                  <h3 className="font-mono text-xs text-primary mb-4 font-bold uppercase tracking-widest border-b border-border pb-2">
+                    On this page
+                  </h3>
+                  <nav className="space-y-2 text-sm font-sans">
+                    {post.toc.map((item, index) => (
+                      <div key={index} className={`${item.level === 3 ? 'ml-4' : ''}`}>
+                        <a 
+                          href={`#${item.id}`}
+                          className="text-muted-foreground hover:text-foreground transition-colors block text-sm leading-tight border-l-2 border-transparent hover:border-primary pl-2 py-1"
+                        >
+                          {item.text}
+                        </a>
+                      </div>
+                    ))}
+                  </nav>
+                </div>
+              )}
+            </aside>
+          </div>
         </main>
 
         <Footer />

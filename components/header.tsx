@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Terminal, Github, Twitter, Rss, Menu, X } from 'lucide-react'
+import { Terminal, Github, Linkedin, Rss, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 export function Header() {
@@ -58,13 +58,13 @@ export function Header() {
               <Github className="h-4 w-4" />
             </a>
             <a
-              href="https://twitter.com/prathampopatiya"
+              href="https://linkedin.com/in/prathampopatiya"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Twitter"
+              aria-label="LinkedIn"
             >
-              <Twitter className="h-4 w-4" />
+              <Linkedin className="h-4 w-4" />
             </a>
             <Link
               href="/rss.xml"
@@ -123,13 +123,13 @@ export function Header() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://linkedin.com/in/prathampopatiya"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Twitter"
+              aria-label="LinkedIn"
             >
-              <Twitter className="h-5 w-5" />
+              <Linkedin className="h-5 w-5" />
             </a>
             <Link
               href="/rss.xml"
