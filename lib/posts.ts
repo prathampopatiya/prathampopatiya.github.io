@@ -22,21 +22,11 @@ export interface PostMeta {
   risk?: 'critical' | 'high' | 'medium' | 'low'
   category?: 'reverse-engineering' | 'malware-analysis' | 'exploit' | 'research'
   readingTime?: number
-  views?: number
 }
 
 export interface Post extends PostMeta {
   content: string
   toc: { id: string, text: string, level: number }[]
-}
-
-function getDeterministicViews(slug: string): number {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = (hash << 5) - hash + slug.charCodeAt(i);
-    hash |= 0;
-  }
-  return (Math.abs(hash) % 15000) + 1200;
 }
 
 export function getSortedPostsData(): PostMeta[] {
@@ -69,7 +59,6 @@ export function getSortedPostsData(): PostMeta[] {
         risk: matterResult.data.risk,
         category: matterResult.data.category,
         readingTime,
-        views: getDeterministicViews(slug),
       }
     })
 
@@ -146,7 +135,15 @@ export async function getPostData(slug: string): Promise<Post> {
   const toc: { id: string, text: string, level: number }[] = [];
   contentHtml = contentHtml.replace(/<h([2-3])>(.*?)<\/h\1>/g, (match, levelStr, text) => {
     const level = parseInt(levelStr, 10);
-    const plainText = text.replace(/<[^>]+>/g, '');
+    let plainText = text.replace(/<[^>]+>/g, '');
+    plainText = plainText
+      .replace(/&amp;/g, '&')
+      .replace(/&#x26;/gi, '&')
+      .replace(/&#38;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'");
     const id = plainText.toLowerCase().replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '');
     toc.push({ id, text: plainText, level });
     return `<h${level} id="${id}">${text}</h${level}>`;
@@ -164,6 +161,5 @@ export async function getPostData(slug: string): Promise<Post> {
     risk: matterResult.data.risk,
     category: matterResult.data.category,
     readingTime,
-    views: getDeterministicViews(slug),
   }
 }

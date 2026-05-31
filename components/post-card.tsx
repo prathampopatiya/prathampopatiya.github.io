@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { Calendar, Tag, ChevronRight, AlertCircle, Clock, Eye } from 'lucide-react'
+import { Calendar, Tag, ChevronRight, AlertCircle, Clock } from 'lucide-react'
 import type { PostMeta } from '@/lib/posts'
 import { formatDate } from '@/lib/utils'
+import { ViewCounter } from '@/components/view-counter'
 
 interface PostCardProps {
   post: PostMeta
@@ -45,12 +46,7 @@ export function PostCard({ post }: PostCardProps) {
             {post.readingTime} min
           </span>
         )}
-        {post.views && (
-          <span className="flex items-center gap-1">
-            <Eye className="h-3 w-3" />
-            {post.views.toLocaleString()}
-          </span>
-        )}
+        <ViewCounter slug={post.slug} trackView={false} />
         {(post as any).category && (
           <span className="px-2 py-0.5 bg-primary text-black font-bold text-[10px]">
             {(post as any).category}

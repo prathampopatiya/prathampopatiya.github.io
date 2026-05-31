@@ -1,10 +1,11 @@
 import { getPostData, getAllPostSlugs } from '@/lib/posts'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Calendar, Tag, ArrowLeft, Clock, AlertCircle, Eye } from 'lucide-react'
+import { Calendar, Tag, ArrowLeft, Clock, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { formatDate } from '@/lib/utils'
+import { ViewCounter } from '@/components/view-counter'
 
 export async function generateStaticParams() {
   const posts = getAllPostSlugs()
@@ -79,12 +80,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   <Clock className="h-4 w-4" />
                   {readingTime} min read
                 </span>
-                {post.views && (
-                  <span className="flex items-center gap-1">
-                    <Eye className="h-4 w-4" />
-                    {post.views.toLocaleString()} views
-                  </span>
-                )}
+                <ViewCounter slug={post.slug} trackView={true} />
                 {post.author && (
                   <span>by {post.author}</span>
                 )}
